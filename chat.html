@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Chat - Chat</title>
+  <link rel="stylesheet" href="/src/styles/main.css">
+  <link rel="stylesheet" href="/src/styles/chat.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo">AI Chat</div>
+      <div class="nav-links">
+        <a href="/" class="nav-link">首页</a>
+        <a href="/chat.html" class="nav-link active">AI Chat</a>
+        <a href="/about.html" class="nav-link">自我介绍</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+    <div class="content-box chat-container">
+      <div class="api-container">
+        <input type="password" id="apiKey" placeholder="请输入 Deepseek API Key" />
+        <button id="saveApi">确认</button>
+        <button id="clearApi">清除</button>
+      </div>
+      
+      <div class="messages-container" id="messages"></div>
+
+      <div class="input-container">
+        <textarea id="userInput" placeholder="输入消息..." rows="3"></textarea>
+        <button id="sendMessage">发送</button>
+      </div>
+    </div>
+  </main>
+
+  <script type="module" src="/src/js/chat.js"></script>
+</body>
+</html>
