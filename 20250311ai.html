@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人博客</title>
+    <link href="0311zhuye.css" rel="stylesheet">
+    <link href="0311ai.css" rel="stylesheet">
+    <script src="img/GridArrayBg.min.js"></script>
+
+</head>
+
+<body>
+    
+    <div id="box">
+        <nav class="content">
+            <div>
+                <img src="img/李沐-AI.png" alt="Logo" style="height: 42px; vertical-align: middle; margin-right: 10px;">
+            </div>
+            <a href="20250311zhuye.html" target="_blank">主页</a>
+            <a href="20250311ai.html" target="_blank">AI聊天助手</a>
+            <a href="https://github.com/" target="_blank">Github</a>
+            
+        </nav>
+        <div class="content2">
+        <section id="section1">
+
+            <!-- 新增聊天对话框 -->
+            <div id="chat-container">
+                <!-- 新增API Key输入框 -->
+                <div id="api-key-container">
+                    <input type="password" id="api-key-input" placeholder="请输入您的API Key">
+                    <button id="api-key-btn">确定</button>
+                    <button id="api-key-clear">清除</button>
+                </div>
+                <div id="chat-window">
+                    <div class="message user">
+                        <div class="text">你好！</div>
+                    </div>
+                    <div class="message ai">
+                        <div class="text">您好！我是AI助手，很高兴为您服务。</div>
+                    </div>
+                </div>
+                
+                <div id="input-container">
+                    <input type="text" id="input" placeholder="请输入您的问题">
+                    <button id="send-btn">发送</button>
+                    <button id="clear-btn">清空记录</button>
+                </div>
+            </div>
+            
+        </section>
+        <footer>
+            <p>© 2025 李沐. All rights reserved.</p>
+        </footer>
+        </div>
+        
+    </div>
+    <script>
+        let colorbg = new Color4Bg.GridArrayBg({
+            dom: "box",
+            colors: ["#000000","#3F4659","#8f8f8f","#EEEFEA","#212832","#000000"],
+            loop: true
+        })
+        </script>
+        <script src="api-handler.js"></script>
+
+
+
+
+</body>
+
+</html>
