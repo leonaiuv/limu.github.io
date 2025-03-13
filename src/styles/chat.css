@@ -283,13 +283,24 @@
   background: #47bd35;
 }
 
-/* 清除按钮特殊样式 */
-.input-container .clear-btn {
+/* 清除按钮和导出按钮特殊样式 */
+.input-container .clear-btn,
+.input-container .export-btn {
   background: #6c757d;
 }
 
-.input-container .clear-btn:hover {
+.input-container .clear-btn:hover,
+.input-container .export-btn:hover {
   background: #5a6268;
+}
+
+/* 导出按钮特殊样式 */
+.input-container .export-btn {
+  background: #28a745;
+}
+
+.input-container .export-btn:hover {
+  background: #218838;
 }
 
 /* 响应式调整 */
