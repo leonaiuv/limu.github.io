@@ -1,7 +1,6 @@
 
 /* 全局CSS变量定义 */
 :root {
-  --background-color: #ffffff;      /* 更深的背景色 */
   --text-primary: #000000;          /* 主要文本颜色-浅灰 */
   --text-secondary: #161616;        /* 次要文本颜色-中灰 */
   --accent-color: #4a90e2;          /* 强调色保持不变 */
