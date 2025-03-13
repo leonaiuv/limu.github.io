@@ -214,6 +214,42 @@ document.getElementById('userInput').addEventListener('keypress', (e) => {
   }
 });
 
+// 导出聊天记录功能
+function exportChatHistory() {
+    // 将聊天记录转换为文本格式
+    let exportText = '';
+    chatHistory.forEach(msg => {
+        const role = msg.role === 'user' ? '用户' : 'AI';
+        exportText += `【${role}】\n`;
+        if (msg.role === 'assistant' && msg.reasoning) {
+            exportText += `思考过程：\n${msg.reasoning.replace(/<br>/g, '\n')}\n`;
+        }
+        exportText += `${msg.content}\n\n`;
+    });
+
+    // 创建Blob对象，指定UTF-8编码
+    const blob = new Blob([exportText], { type: 'text/plain;charset=utf-8' });
+    
+    // 创建下载链接
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = `聊天记录_${new Date().toLocaleString().replace(/[/:]/g, '-')}.txt`;
+    
+    // 触发下载
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(a.href);
+}
+
+// 添加导出按钮事件监听器
+document.addEventListener('DOMContentLoaded', () => {
+    const exportBtn = document.getElementById('exportChat');
+    if (exportBtn) {
+        exportBtn.addEventListener('click', exportChatHistory);
+    }
+});
+
 // 添加清除消息的事件监听器
 document.getElementById('clearMessage').addEventListener('click', () => {
   if (confirm('确定要清除所有聊天记录吗？此操作不可撤销。')) {
