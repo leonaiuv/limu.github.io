@@ -138,15 +138,16 @@ async function sendToDeepSeek(message) {
                     const delta = data.choices[0].delta;
                     
                     if(delta.reasoning_content) {
-                        reasoningDiv.innerHTML = reasoningDiv.innerHTML.replace('<em>思考中...</em>', '') + 
-                            delta.reasoning_content.replace(/\n/g, '<br>');
-                        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+                        reasoningDiv.innerHTML += delta.reasoning_content.replace(/\n/g, '<br>');
+                        autoScroll(reasoningDiv);
                     }
                     
                     if(delta.content) {
                         contentDiv.innerHTML += delta.content.replace(/\n/g, '<br>');
                         fullResponse += delta.content;
-                        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+                        setTimeout(() => {
+                            autoScroll(contentDiv.closest('.message').parentElement);
+                        }, 50);
                     }
                 } catch(e) {
                     console.error('解析错误:', e);
@@ -154,24 +155,29 @@ async function sendToDeepSeek(message) {
             });
         }
 
-        // 更新聊天历史
-        chatHistory.push(
-            { role: 'user', content: message },
-            { 
-                role: 'assistant', 
-                content: fullResponse,
-                reasoning: reasoningDiv.innerHTML
-            }
-        );
+        // 添加自动滚动函数
+        function autoScroll(element) {
+          if(element) {
+            element.scrollTop = element.scrollHeight;
+          }
+        }
         
-        // 保存到localStorage
+        // 更新聊天历史后实时保存
+        chatHistory.push(
+          { role: 'user', content: message },
+          { 
+            role: 'assistant', 
+            content: fullResponse,
+            reasoning: reasoningDiv.innerHTML
+          }
+        );
         localStorage.setItem('chatHistory', JSON.stringify(chatHistory));
 
     } catch(error) {
         console.error('API请求错误:', error);
         const errorDiv = document.createElement('div');
-        errorDiv.className = 'message system';
-        errorDiv.textContent = `请求失败: ${error.message}`;
+        errorDiv.className = 'message error';
+        errorDiv.innerHTML = `<i class="fas fa-exclamation-circle"></i> 请求失败: ${error.message}`;
         messagesContainer.appendChild(errorDiv);
     } finally {
         inputField.disabled = false;
