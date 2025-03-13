@@ -72,8 +72,12 @@ body {
   padding: 0 1rem;
 }
 
-/* 内容盒子样式 */
-.content-box {
+/* 主内容容器 - 用于包裹页面主要内容区域
+   结构特征：
+   1. 透明背景带圆角
+   2. 自适应高度布局
+   3. 移动端响应式处理 */
+.main-container {
   background-color: rgba(255, 255, 255, 0.05);
   border-radius: 8px;
   padding: 2rem;
@@ -124,7 +128,7 @@ button:hover {
     gap: 1rem;
   }
 
-  .content-box {
+  .main-container {
     padding: 1rem;
     min-height: 400px;  /* 在移动设备上减小最小高度 */
   }
