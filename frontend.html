@@ -9,6 +9,11 @@
   <link rel="stylesheet" href="./src/styles/chat.css">  <!-- 统一使用主样式 -->
   <link rel="stylesheet" href="./src/styles/frontend.css">
   
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>前端开发基础知识 - Web开发学习</title>
+    <link rel="stylesheet" href="src/styles/style.css">
+    <link rel="stylesheet" href="src/styles/frontend.css">
 </head>
 <body>
   <div id="background" class="background-container"></div>
@@ -25,6 +30,15 @@
       </div>
     </div>
   </nav>
+    <div class="container">
+        <!-- 页面导航 -->
+        <nav class="page-nav">
+            <div class="nav-links">
+                <a href="index.html">首页</a>
+                <span class="nav-separator">/</span>
+                <span class="current-page">前端开发基础知识</span>
+            </div>
+        </nav>
 
   <!-- 主要内容区域 -->
   <main class="container">
@@ -42,6 +56,11 @@
           <div class="topic-list-item">HTML5新特性</div>
           <a href="https://developer.mozilla.org/zh-CN/docs/Learn/HTML" target="_blank" class="resource-link">MDN HTML教程</a>
         </div>
+        <!-- 页面标题区 -->
+        <header class="page-header">
+            <h1>前端开发基础知识</h1>
+            <p class="header-desc">探索前端开发的核心概念和基础技术</p>
+        </header>
 
         <!-- CSS 部分 -->
         <div class="topic-card">
@@ -53,6 +72,18 @@
           <div class="topic-list-item">动画和过渡</div>
           <a href="https://developer.mozilla.org/zh-CN/docs/Learn/CSS" target="_blank" class="resource-link">MDN CSS教程</a>
         </div>
+        <!-- 主要内容区 -->
+        <main class="main-content">
+            <!-- 快速导航 -->
+            <aside class="quick-nav">
+                <h2>内容导航</h2>
+                <ul>
+                    <li><a href="#html-basics">HTML基础</a></li>
+                    <li><a href="#css-basics">CSS基础</a></li>
+                    <li><a href="#js-basics">JavaScript基础</a></li>
+                    <li><a href="#tools">开发工具</a></li>
+                </ul>
+            </aside>
 
         <!-- JavaScript 部分 -->
         <div class="topic-card">
@@ -64,6 +95,39 @@
           <div class="topic-list-item">现代JS特性</div>
           <a href="https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript" target="_blank" class="resource-link">MDN JS教程</a>
         </div>
+            <!-- 内容区域 -->
+            <div class="content-sections">
+                <!-- HTML基础部分 -->
+                <section id="html-basics" class="content-section">
+                    <h2>HTML基础</h2>
+                    <div class="section-content">
+                        <p>HTML（超文本标记语言）是网页的基础，用于构建网页的结构。</p>
+                        <div class="key-points">
+                            <h3>关键概念：</h3>
+                            <ul>
+                                <li>HTML文档结构</li>
+                                <li>语义化标签</li>
+                                <li>表单和输入</li>
+                                <li>多媒体元素</li>
+                            </ul>
+                        </div>
+                        <div class="code-example">
+                            <h3>示例代码：</h3>
+                            <div class="code-block">
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;页面标题&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Hello World&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
         <!-- 开发工具 部分 -->
         <div class="topic-card">
@@ -75,6 +139,29 @@
           <div class="topic-list-item">包管理器(npm/yarn)</div>
           <a href="https://code.visualstudio.com/docs" target="_blank" class="resource-link">VS Code文档</a>
         </div>
+                <!-- CSS基础部分 -->
+                <section id="css-basics" class="content-section">
+                    <h2>CSS基础</h2>
+                    <div class="section-content">
+                        <p>CSS（层叠样式表）用于设计网页的视觉表现，控制布局、颜色、字体等样式。</p>
+                        <div class="key-points">
+                            <h3>核心概念：</h3>
+                            <ul>
+                                <li>选择器和优先级</li>
+                                <li>盒模型</li>
+                                <li>布局方式（Flexbox/Grid）</li>
+                                <li>响应式设计</li>
+                            </ul>
+                        </div>
+                        <div class="code-example">
+                            <h3>示例代码：</h3>
+                            <div class="code-block">
+<pre><code>.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 20px;
+}
 
         <!-- 框架和库 部分 -->
         <div class="topic-card">
@@ -86,6 +173,15 @@
           <div class="topic-list-item">常用UI组件库</div>
           <a href="https://react.dev/" target="_blank" class="resource-link">React文档</a>
         </div>
+.item {
+    flex: 1;
+    padding: 20px;
+    border-radius: 8px;
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
         <!-- 性能优化 部分 -->
         <div class="topic-card">
@@ -100,6 +196,27 @@
       </div>
     </div>
   </main>
+                <!-- JavaScript基础部分 -->
+                <section id="js-basics" class="content-section">
+                    <h2>JavaScript基础</h2>
+                    <div class="section-content">
+                        <p>JavaScript是一种动态编程语言，用于创建交互式网页效果和Web应用程序。</p>
+                        <div class="key-points">
+                            <h3>重要概念：</h3>
+                            <ul>
+                                <li>变量和数据类型</li>
+                                <li>函数和作用域</li>
+                                <li>DOM操作</li>
+                                <li>异步编程</li>
+                            </ul>
+                        </div>
+                        <div class="code-example">
+                            <h3>示例代码：</h3>
+                            <div class="code-block">
+<pre><code>// 基本函数示例
+function greeting(name) {
+    return `Hello, ${name}!`;
+}
 
   <!-- 引入JavaScript文件 -->
   <script type="module" src="./src/js/main.js"></script>
@@ -109,7 +226,43 @@
   <script src="./src/js/background.js"></script>
 </body>
 </html>
+// DOM操作示例
+document.querySelector('.button')
+    .addEventListener('click', () => {
+        console.log('Button clicked!');
+    });</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 开发工具部分 -->
+                <section id="tools" class="content-section">
+                    <h2>开发工具</h2>
+                    <div class="section-content">
+                        <p>掌握合适的开发工具可以显著提高前端开发效率。</p>
+                        <div class="key-points">
+                            <h3>常用工具：</h3>
+                            <ul>
+                                <li>代码编辑器（VS Code, Sublime Text）</li>
+                                <li>浏览器开发者工具</li>
+                                <li>版本控制（Git）</li>
+                                <li>构建工具（Webpack, Vite）</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
 
 
 
-
+        <!-- 页脚导航 -->
+        <footer class="page-footer">
+            <div class="footer-nav">
+                <a href="index.html" class="nav-button">返回首页</a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
