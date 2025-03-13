@@ -6,10 +6,33 @@
   height: calc(100vh - 120px);
   max-width: 1200px;
   margin: 20px auto;
-  background: #000000;
-  border-radius: 12px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 16px;
+  box-shadow: 
+    0 4px 24px rgba(0, 0, 0, 0.2),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1);
   padding: 20px;
+  position: relative;
+  isolation: isolate;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* 添加容器边缘渐变效果 */
+.chat-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% 0%, 
+    rgba(255, 255, 255, 0.1),
+    transparent 70%
+  );
+  border-radius: inherit;
+  z-index: -1;
+  pointer-events: none;
 }
 
 /* API设置区域样式 */
@@ -17,9 +40,11 @@
   display: flex;
   gap: 10px;
   padding: 15px;
-  background: #424242;
+  background: rgba(66, 66, 66, 0.7);
   border-radius: 8px;
   margin-bottom: 20px;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .api-container input {
