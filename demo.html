@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aesthetic Fluid Background Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #background {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .controls {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            z-index: 100;
+        }
+
+        .controls h3 {
+            color: rgb(0, 0, 0);
+            margin-bottom: 10px;
+        }
+
+        .color-input {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .color-input label {
+            color: rgb(0, 0, 0);
+            margin-right: 10px;
+        }
+
+        button {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            padding: 8px 16px;
+            color: rgb(0, 0, 0);
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div id="background"></div>
+    
+    <div class="controls">
+        <h3>Background Controls</h3>
+        <div class="color-input">
+            <label>Color 1:</label>
+            <input type="color" id="color1" value="#C2E5F2">
+        </div>
+        <div class="color-input">
+            <label>Color 2:</label>
+            <input type="color" id="color2" value="#D0EFF4">
+        </div>
+        <div class="color-input">
+            <label>Color 3:</label>
+            <input type="color" id="color3" value="#E0F7FE">
+        </div>
+        <div class="color-input">
+            <label>Color 4:</label>
+            <input type="color" id="color4" value="#C6F4E3">
+        </div>
+        <div class="color-input">
+            <label>Color 5:</label>
+            <input type="color" id="color5" value="#BDF2D8">
+        </div>
+        <div class="color-input">
+            <label>Color 6:</label>
+            <input type="color" id="color6" value="#ADEDBF">
+        </div>
+        <button onclick="updateColors()">Apply Colors</button>
+    </div>
+
+    <script src="AestheticFluidBg.min.js"></script>
+    <script>
+        // Initialize background
+        let bg = new Color4Bg.AestheticFluidBg({
+            dom: "background",
+            colors: ["#C2E5F2","#D0EFF4","#E0F7FE","#C6F4E3","#BDF2D8","#ADEDBF"],
+            loop: true
+        });
+
+        // Function to update colors
+        function updateColors() {
+            const colors = [
+                document.getElementById('color1').value,
+                document.getElementById('color2').value,
+                document.getElementById('color3').value,
+                document.getElementById('color4').value,
+                document.getElementById('color5').value,
+                document.getElementById('color6').value
+            ];
+            
+            bg.colors(colors);
+        }
+    </script>
+</body>
+</html>

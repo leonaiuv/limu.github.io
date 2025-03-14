@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Background Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        #background {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        .controls {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.5);
+            padding: 20px;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            padding: 8px 16px;
+            color: rgb(0, 0, 0);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            min-width: 120px;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-1px);
+        }
+
+        .btn:active {
+            transform: translateY(1px);
+        }
+
+        .slider-container {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .slider-container label {
+            color: rgb(0, 0, 0);
+            font-size: 12px;
+        }
+
+        .slider {
+            width: 100%;
+            height: 4px;
+            -webkit-appearance: none;
+            background: rgba(27, 27, 27, 0.7);
+            border-radius: 2px;
+            outline: none;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 16px;
+            height: 16px;
+            background: rgb(0, 0, 0);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="background"></div>
+    
+    <div class="controls">
+        <button class="btn" onclick="changeBackground()">Change Theme</button>
+        <div class="slider-container">
+            <label>Wave Intensity</label>
+            <input type="range" min="0" max="0.3" step="0.01" value="0.15" class="slider" id="waveSlider">
+        </div>
+    </div>
+
+    <script src="AestheticFluidBg.min.js"></script>
+    <script>
+        // Color themes
+        const themes = [
+            ["#C2E5F2","#D0EFF4","#E0F7FE","#C6F4E3","#BDF2D8","#ADEDBF"], // Default theme
+            ["#FF9AA2","#FFB7B2","#FFDAC1","#E2F0CB","#B5EAD7","#C7CEEA"], // Pastel theme
+            ["#2D00F7","#6A00F4","#8900F2","#A100F2","#B100E8","#BC00DD"], // Purple theme
+            ["#8ECAE6","#219EBC","#023047","#FFB703","#FB8500","#FF6B35"], // Ocean sunset
+            ["#390099","#9E0059","#FF0054","#FF5400","#FFBD00","#FFE099"]  // Vibrant
+        ];
+
+        let currentTheme = 0;
+        let bg;
+
+        // Initialize background
+        function initBackground() {
+            bg = new Color4Bg.AestheticFluidBg({
+                dom: "background",
+                colors: themes[currentTheme],
+                loop: true
+            });
+        }
+
+        // Change background theme
+        function changeBackground() {
+            currentTheme = (currentTheme + 1) % themes.length;
+            bg.colors(themes[currentTheme]);
+        }
+
+        // Initialize when page loads
+        window.addEventListener('load', initBackground);
+
+        // Wave intensity control
+        document.getElementById('waveSlider').addEventListener('input', function(e) {
+            bg.update('scale', e.target.value);
+        });
+    </script>
+</body>
+</html>
