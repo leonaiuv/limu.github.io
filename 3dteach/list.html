@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List列表元素演示</title>
+    <link rel="stylesheet" href="styles/navbar.css">
+    <link rel="stylesheet" href="styles/list.css">
+</head>
+<body>
+    <div class="demo-container">
+        <h1>认识List列表元素</h1>
+        <p class="description">List（列表）是HTML中用于展示结构化内容的重要元素，包括有序列表(ol)、无序列表(ul)和定义列表(dl)。</p>
+
+        <h2 class="section-title">1. 基本的列表类型</h2>
+        <div class="list-types">
+            <div class="list-example">
+                <h3>无序列表 (ul)</h3>
+                <ul class="basic-list">
+                    <li>列表项目 1</li>
+                    <li>列表项目 2</li>
+                    <li>列表项目 3</li>
+                </ul>
+            </div>
+            <div class="list-example">
+                <h3>有序列表 (ol)</h3>
+                <ol class="basic-list">
+                    <li>第一个项目</li>
+                    <li>第二个项目</li>
+                    <li>第三个项目</li>
+                </ol>
+            </div>
+            <div class="list-example">
+                <h3>定义列表 (dl)</h3>
+                <dl class="basic-list">
+                    <dt>HTML</dt>
+                    <dd>超文本标记语言</dd>
+                    <dt>CSS</dt>
+                    <dd>层叠样式表</dd>
+                </dl>
+            </div>
+        </div>
+
+        <h2 class="section-title">2. 列表样式控制</h2>
+        <div class="style-demo">
+            <div class="control-panel">
+                <h3>实时样式调整</h3>
+                <div class="control-group">
+                    <label>列表样式</label>
+                    <select id="listStyleControl">
+                        <option value="disc">实心圆</option>
+                        <option value="circle">空心圆</option>
+                        <option value="square">方块</option>
+                        <option value="none">无样式</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <label>项目间距</label>
+                    <input type="range" id="spacingControl" min="5" max="30" value="10">
+                    <span class="value-display">10px</span>
+                </div>
+                <div class="control-group">
+                    <label>缩进距离</label>
+                    <input type="range" id="indentControl" min="0" max="50" value="20">
+                    <span class="value-display">20px</span>
+                </div>
+                <div class="control-group">
+                    <label>项目颜色</label>
+                    <input type="color" id="colorControl" value="#333333">
+                </div>
+            </div>
+            <div class="preview-area">
+                <ul id="demoList" class="styled-list">
+                    <li>可调整样式的列表项目 1</li>
+                    <li>可调整样式的列表项目 2</li>
+                    <li>可调整样式的列表项目 3</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2 class="section-title">3. 嵌套列表</h2>
+        <div class="nested-demo">
+            <ul class="nested-list">
+                <li>
+                    一级项目 1
+                    <ul>
+                        <li>二级项目 1.1</li>
+                        <li>
+                            二级项目 1.2
+                            <ul>
+                                <li>三级项目 1.2.1</li>
+                                <li>三级项目 1.2.2</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    一级项目 2
+                    <ul>
+                        <li>二级项目 2.1</li>
+                        <li>二级项目 2.2</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <h2 class="section-title">4. 自定义列表样式</h2>
+        <div class="custom-examples">
+            <div class="example-block">
+                <h3>图标列表</h3>
+                <ul class="icon-list">
+                    <li>成功完成的任务</li>
+                    <li>进行中的任务</li>
+                    <li>待处理的任务</li>
+                </ul>
+            </div>
+            <div class="example-block">
+                <h3>时间线列表</h3>
+                <ul class="timeline-list">
+                    <li>2024年1月：项目启动</li>
+                    <li>2024年3月：开发阶段</li>
+                    <li>2024年6月：项目发布</li>
+                </ul>
+            </div>
+            <div class="example-block">
+                <h3>卡片列表</h3>
+                <ul class="card-list">
+                    <li>
+                        <h4>标题 1</h4>
+                        <p>这是一个卡片式列表项的描述内容</p>
+                    </li>
+                    <li>
+                        <h4>标题 2</h4>
+                        <p>这是另一个卡片式列表项的描述内容</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <h2 class="section-title">5. 响应式列表</h2>
+        <div class="responsive-demo">
+            <ul class="responsive-list">
+                <li>
+                    <img src="https://via.placeholder.com/50" alt="项目图标">
+                    <div class="content">
+                        <h4>响应式列表项 1</h4>
+                        <p>这是一个响应式列表项的详细描述，在不同屏幕尺寸下会自动调整布局。</p>
+                    </div>
+                </li>
+                <li>
+                    <img src="https://via.placeholder.com/50" alt="项目图标">
+                    <div class="content">
+                        <h4>响应式列表项 2</h4>
+                        <p>这是另一个响应式列表项的详细描述，展示了列表的灵活性。</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="js/navbar.js"></script>
+    <script src="js/list.js"></script>
+</body>
+</html>

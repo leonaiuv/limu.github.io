@@ -1,0 +1,303 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+.demo-container {
+    max-width: 1200px;
+    width: 95%;
+    text-align: center;
+    padding: 20px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.section-title {
+    color: #333;
+    margin: 30px 0 15px;
+    font-size: 1.5em;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+}
+
+.description {
+    line-height: 1.6;
+    color: #666;
+    margin: 15px 0;
+    text-align: left;
+    padding: 0 20px;
+}
+
+/* 基本列表样式 */
+.list-types {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.list-example {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.list-example h3 {
+    color: #007bff;
+    margin-top: 0;
+}
+
+.basic-list {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.basic-list li {
+    margin: 10px 0;
+}
+
+/* 控制面板样式 */
+.style-demo {
+    display: flex;
+    gap: 20px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.control-panel {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    flex: 1;
+    min-width: 300px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.control-panel h3 {
+    margin-top: 0;
+    color: #333;
+    text-align: center;
+}
+
+.control-group {
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.control-group label {
+    min-width: 100px;
+    text-align: right;
+}
+
+.control-group input[type="range"] {
+    flex: 1;
+}
+
+.value-display {
+    min-width: 50px;
+    text-align: left;
+}
+
+.preview-area {
+    flex: 2;
+    min-width: 300px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    text-align: left;
+}
+
+/* 嵌套列表样式 */
+.nested-list {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.nested-list ul {
+    list-style-type: circle;
+    margin: 10px 0;
+}
+
+.nested-list ul ul {
+    list-style-type: square;
+}
+
+/* 自定义列表样式 */
+.custom-examples {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.example-block {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.example-block h3 {
+    color: #007bff;
+    margin-top: 0;
+}
+
+/* 图标列表 */
+.icon-list {
+    list-style: none;
+    padding: 0;
+}
+
+.icon-list li {
+    padding-left: 30px;
+    margin: 10px 0;
+    position: relative;
+}
+
+.icon-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #28a745;
+}
+
+/* 时间线列表 */
+.timeline-list {
+    list-style: none;
+    padding: 0;
+    position: relative;
+}
+
+.timeline-list::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #007bff;
+}
+
+.timeline-list li {
+    padding-left: 20px;
+    margin: 20px 0;
+    position: relative;
+}
+
+.timeline-list li::before {
+    content: '';
+    position: absolute;
+    left: -4px;
+    top: 50%;
+    width: 10px;
+    height: 10px;
+    background: #007bff;
+    border-radius: 50%;
+    transform: translateY(-50%);
+}
+
+/* 卡片列表 */
+.card-list {
+    list-style: none;
+    padding: 0;
+}
+
+.card-list li {
+    background: white;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.card-list h4 {
+    margin: 0 0 10px 0;
+    color: #333;
+}
+
+.card-list p {
+    margin: 0;
+    color: #666;
+}
+
+/* 响应式列表 */
+.responsive-list {
+    list-style: none;
+    padding: 0;
+}
+
+.responsive-list li {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    background: white;
+    margin: 10px 0;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.responsive-list img {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+}
+
+.responsive-list .content {
+    flex: 1;
+    text-align: left;
+}
+
+.responsive-list h4 {
+    margin: 0 0 10px 0;
+    color: #333;
+}
+
+.responsive-list p {
+    margin: 0;
+    color: #666;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .style-demo {
+        flex-direction: column;
+    }
+
+    .responsive-list li {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .responsive-list .content {
+        text-align: center;
+    }
+
+    .timeline-list::before {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .timeline-list li {
+        padding-left: 0;
+        padding-top: 20px;
+        text-align: center;
+    }
+
+    .timeline-list li::before {
+        left: 50%;
+        top: 0;
+        transform: translateX(-50%);
+    }
+}
