@@ -1,3 +1,6 @@
+// 导航栏交互脚本 - 增强版
+// 为HTML 3D可视化教学平台提供响应式导航功能
+
 // 加载导航栏
 async function loadNavbar() {
     try {

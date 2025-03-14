@@ -1,9 +1,10 @@
 body {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     min-height: 100vh;
     margin: 0;
+    padding-top: 70px; /* 为顶部导航栏留出空间 */
     background-color: #f0f0f0;
     font-family: Arial, sans-serif;
 }
