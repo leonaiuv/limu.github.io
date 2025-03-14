@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI基础教学 - 新手友好的人工智能学习平台</title>
+    <link rel="stylesheet" href="styles/navbar.css">
+    <style>
+        :root {
+            --primary-color: #6200ea;
+            --secondary-color: #03dac6;
+            --accent-color: #ff4081;
+            --text-color: #333;
+            --light-bg: #f9f9f9;
+            --card-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+            margin: 0;
+            padding: 70px 0 0 0; /* 为顶部导航栏留出空间 */
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, #6200ea, #03dac6);
+            color: white;
+            text-align: center;
+            padding: 4rem 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .hero-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            animation: fadeIn 1s ease-in-out;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .topic-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .topic-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+        
+        .card-header {
+            padding: 1.5rem;
+            background: var(--primary-color);
+            color: white;
+            text-align: center;
+        }
+        
+        .card-header h3 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+        
+        .card-body {
+            padding: 1.5rem;
+        }
+        
+        .card-body p {
+            margin-top: 0;
+        }
+        
+        .topic-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+            margin-top: 1rem;
+        }
+        
+        .btn:hover {
+            background-color: #7c4dff;
+        }
+        
+        .features-section {
+            background-color: white;
+            padding: 3rem 0;
+        }
+        
+        .features-section h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .feature-item {
+            display: flex;
+            margin-bottom: 2rem;
+            align-items: center;
+        }
+        
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            margin-right: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .feature-text h3 {
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+        
+        .cta-section {
+            text-align: center;
+            padding: 4rem 0;
+        }
+        
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 2rem;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .topics-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .feature-item {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .feature-icon {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="main-nav">
+        <div class="nav-brand">
+            <a href="./index.html">AI基础教学</a>
+        </div>
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="./intro.html" class="nav-link">AI简介</a>
+            </li>
+            <li class="nav-item">
+                <a href="./ml.html" class="nav-link">机器学习</a>
+            </li>
+            <li class="nav-item">
+                <a href="./dl.html" class="nav-link">深度学习</a>
+            </li>
+            <li class="nav-item">
+                <a href="./nlp.html" class="nav-link">自然语言处理</a>
+            </li>
+            <li class="nav-item">
+                <a href="./cv.html" class="nav-link">计算机视觉</a>
+            </li>
+            <li class="nav-item">
+                <a href="./future.html" class="nav-link">AI未来</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- 英雄区域 -->
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="hero-title">AI基础知识教学平台</h1>
+            <p class="hero-subtitle">从零开始，轻松掌握人工智能的核心概念和应用</p>
+            <a href="#topics" class="btn">开始学习</a>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- AI主题区域 -->
+        <section id="topics" class="topics-section">
+            <h2>AI基础知识</h2>
+            <div class="topics-grid">
+                <div class="topic-card">
+                    <div class="card-header">
+                        <div class="topic-icon">🤖</div>
+                        <h3>AI简介</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>了解人工智能的基本概念、发展历史和主要应用领域。</p>
+                        <a href="./intro.html" class="btn">开始学习</a>
+                    </div>
+                </div>
+                
+                <div class="topic-card">
+                    <div class="card-header">
+                        <div class="topic-icon">📊</div>
+                        <h3>机器学习</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>探索机器学习的基本原理、算法类型和实际应用案例。</p>
+                        <a href="./ml.html" class="btn">开始学习</a>
+                    </div>
+                </div>
+                
+                <div class="topic-card">
+                    <div class="card-header">
+                        <div class="topic-icon">🧠</div>
+                        <h3>深度学习</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>深入了解神经网络的工作原理、架构和训练方法。</p>
+                        <a href="./dl.html" class="btn">开始学习</a>
+                    </div>
+                </div>
+                
+                <div class="topic-card">
+                    <div class="card-header">
+                        <div class="topic-icon">💬</div>
+                        <h3>自然语言处理</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>学习计算机如何理解、分析和生成人类语言的技术。</p>
+                        <a href="./nlp.html" class="btn">开始学习</a>
+                    </div>
+                </div>
+                
+                <div class="topic-card">
+                    <div class="card-header">
+                        <div class="topic-icon">👁️</div>
+                        <h3>计算机视觉</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>探索计算机如何"看见"和理解图像与视频的技术。</p>
+                        <a href="./cv.html" class="btn">开始学习</a>
+                    </div>
+                </div>
+                
+                <div class="topic-card">
+                    <div class="card-header">
+                        <div class="topic-icon">🔮</div>
+                        <h3>AI未来</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>展望人工智能的未来发展趋势、挑战和伦理考量。</p>
+                        <a href="./future.html" class="btn">开始学习</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="features-section">
+            <div class="container">
+                <h2>为什么选择我们的AI教学平台？</h2>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">1</div>
+                    <div class="feature-text">
+                        <h3>零基础友好</h3>
+                        <p>无需任何编程或数学背景，从最基础的概念开始，循序渐进地学习AI知识。</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">2</div>
+                    <div class="feature-text">
+                        <h3>可视化学习</h3>
+                        <p>通过交互式图表、动画和实例，直观理解复杂的AI概念和原理。</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">3</div>
+                    <div class="feature-text">
+                        <h3>实用导向</h3>
+                        <p>关注AI的实际应用场景，了解AI如何解决现实世界的问题。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="cta-section">
+            <h2>准备好开始AI学习之旅了吗？</h2>
+            <p>选择一个主题，开始探索人工智能的奇妙世界！</p>
+            <a href="#topics" class="btn">浏览所有主题</a>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 AI基础教学平台 | 为新手打造的人工智能学习平台</p>
+        </div>
+    </footer>
+</body>
+</html>

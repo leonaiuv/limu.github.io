@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Table表格元素演示</title>
+    <title>Table表格元素 - 交互式学习</title>
     <link rel="stylesheet" href="styles/navbar.css">
     <link rel="stylesheet" href="styles/table.css">
-    <script src="js/table.js"></script>
-</head>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
+    <script src="js/table.js" defer></script>
 <body>
     <!-- 导航栏 -->
     <nav class="main-nav">
@@ -36,205 +37,448 @@
         </ul>
     </nav>
     
-    <div class="demo-container">
-        <h1>认识Table表格元素</h1>
-        <p class="description">Table元素用于创建表格数据的展示，是展示结构化数据的重要HTML元素。</p>
-
-        <h2 class="section-title">1. 基本的表格结构</h2>
-        <div class="demo-area">
-            <table class="basic-table">
-                <thead>
-                    <tr>
-                        <th>表头1</th>
-                        <th>表头2</th>
-                        <th>表头3</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>数据1</td>
-                        <td>数据2</td>
-                        <td>数据3</td>
-                    </tr>
-                    <tr>
-                        <td>数据4</td>
-                        <td>数据5</td>
-                        <td>数据6</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <h2 class="section-title">2. 表格样式控制</h2>
-        <div class="style-demo">
-            <div class="control-panel">
-                <h3>实时样式调整</h3>
-                <div class="control-group">
-                    <label>边框宽度</label>
-                    <input type="range" id="borderWidthControl" min="1" max="5" value="1">
-                    <span class="value-display">1px</span>
-                </div>
-                <div class="control-group">
-                    <label>单元格内边距</label>
-                    <input type="range" id="paddingControl" min="5" max="20" value="8">
-                    <span class="value-display">8px</span>
-                </div>
-                <div class="control-group">
-                    <label>边框样式</label>
-                    <select id="borderStyleControl">
-                        <option value="solid">实线</option>
-                        <option value="dashed">虚线</option>
-                        <option value="dotted">点线</option>
-                        <option value="double">双线</option>
-                    </select>
-                </div>
-                <div class="control-group">
-                    <label>斑马线样式</label>
-                    <input type="checkbox" id="zebraControl">
-                </div>
+    <div class="page-container">
+        <div class="sidebar">
+            <div class="toc">
+                <h3>目录</h3>
+                <ul>
+                    <li><a href="#introduction">表格元素介绍</a></li>
+                    <li><a href="#structure">表格结构与组成</a></li>
+                    <li><a href="#attributes">表格属性与样式</a></li>
+                    <li><a href="#interactive">交互式表格构建器</a></li>
+                    <li><a href="#advanced">高级表格技巧</a></li>
+                    <li><a href="#ai-assistant">AI助手</a></li>
+                </ul>
             </div>
-            <div class="preview-area">
-                <table id="demoTable" class="styled-table">
-                    <thead>
-                        <tr>
-                            <th>产品</th>
-                            <th>价格</th>
-                            <th>库存</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>商品A</td>
-                            <td>¥100</td>
-                            <td>50</td>
-                        </tr>
-                        <tr>
-                            <td>商品B</td>
-                            <td>¥200</td>
-                            <td>30</td>
-                        </tr>
-                        <tr>
-                            <td>商品C</td>
-                            <td>¥150</td>
-                            <td>40</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="ai-chat-container">
+                <div class="ai-chat-header">
+                    <h3>AI助手</h3>
+                </div>
+                <div class="ai-chat-messages" id="aiChatMessages">
+                    <div class="ai-message">你好！我是你的HTML表格学习助手。有任何关于表格元素的问题，都可以问我！</div>
+                </div>
+                <div class="ai-chat-input">
+                    <input type="text" id="aiChatInput" placeholder="问一个关于表格的问题...">
+                    <button id="aiChatSend">发送</button>
+                </div>
             </div>
         </div>
 
-        <h2 class="section-title">3. 表格的常用属性</h2>
-        <div class="code-block">
-            <button class="copy-btn">复制代码</button>
-            <code>
-table {
-    border-collapse: collapse;
-    width: 100%;
+        <div class="main-content">
+            <section id="introduction" class="content-section">
+                <h1>表格元素 <code>&lt;table&gt;</code></h1>
+                <p class="description">表格元素是HTML中用于展示结构化数据的重要组件，通过行和列的形式组织信息，使数据更易于理解和比较。</p>
+                
+                <div class="visualization-container">
+                    <div id="table3DContainer" class="model-container"></div>
+                    <div class="model-controls">
+                        <button id="rotateModel">旋转模型</button>
+                        <button id="explodeModel">分解视图</button>
+                        <button id="resetModel">重置视图</button>
+                    </div>
+                </div>
+            </section>
+
+            <section id="structure" class="content-section">
+                <h2>表格结构与组成</h2>
+                <p>表格由多个元素组成，每个元素都有特定的作用：</p>
+                
+                <div class="element-breakdown">
+                    <div class="element-item" data-element="table">
+                        <h3><code>&lt;table&gt;</code></h3>
+                        <p>表格的容器元素，包含所有表格内容</p>
+                    </div>
+                    <div class="element-item" data-element="thead">
+                        <h3><code>&lt;thead&gt;</code></h3>
+                        <p>表格的头部区域，通常包含列标题</p>
+                    </div>
+                    <div class="element-item" data-element="tbody">
+                        <h3><code>&lt;tbody&gt;</code></h3>
+                        <p>表格的主体区域，包含数据行</p>
+                    </div>
+                    <div class="element-item" data-element="tfoot">
+                        <h3><code>&lt;tfoot&gt;</code></h3>
+                        <p>表格的底部区域，通常包含汇总信息</p>
+                    </div>
+                    <div class="element-item" data-element="tr">
+                        <h3><code>&lt;tr&gt;</code></h3>
+                        <p>表格行，包含单元格</p>
+                    </div>
+                    <div class="element-item" data-element="th">
+                        <h3><code>&lt;th&gt;</code></h3>
+                        <p>表头单元格，用于定义列标题</p>
+                    </div>
+                    <div class="element-item" data-element="td">
+                        <h3><code>&lt;td&gt;</code></h3>
+                        <p>数据单元格，包含表格数据</p>
+                    </div>
+                </div>
+
+                <div class="interactive-demo">
+                    <h3>交互式结构演示</h3>
+                    <div class="structure-demo">
+                        <div class="code-view">
+                            <pre><code id="structureCode">&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;表头1&lt;/th&gt;
+      &lt;th&gt;表头2&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;数据1&lt;/td&gt;
+      &lt;td&gt;数据2&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;数据3&lt;/td&gt;
+      &lt;td&gt;数据4&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;tfoot&gt;
+    &lt;tr&gt;
+      &lt;td&gt;底部1&lt;/td&gt;
+      &lt;td&gt;底部2&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tfoot&gt;
+&lt;/table&gt;</code></pre>
+                        </div>
+                        <div class="preview-view">
+                            <div id="structurePreview">
+                                <table class="demo-table">
+                                    <thead>
+                                        <tr>
+                                            <th>表头1</th>
+                                            <th>表头2</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>数据1</td>
+                                            <td>数据2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>数据3</td>
+                                            <td>数据4</td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td>底部1</td>
+                                            <td>底部2</td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="structure-controls">
+                        <button id="highlightTable">高亮 table</button>
+                        <button id="highlightThead">高亮 thead</button>
+                        <button id="highlightTbody">高亮 tbody</button>
+                        <button id="highlightTfoot">高亮 tfoot</button>
+                        <button id="highlightTr">高亮 tr</button>
+                        <button id="highlightTh">高亮 th</button>
+                        <button id="highlightTd">高亮 td</button>
+                    </div>
+                </div>
+            </section>
+
+            <section id="attributes" class="content-section">
+                <h2>表格属性与样式</h2>
+                <p>表格元素有多种属性和CSS样式可以控制其外观和行为：</p>
+                
+                <div class="attributes-demo">
+                    <div class="control-panel">
+                        <h3>实时样式调整</h3>
+                        <div class="control-group">
+                            <label for="borderWidthControl">边框宽度</label>
+                            <input type="range" id="borderWidthControl" min="0" max="10" value="1">
+                            <span class="value-display">1px</span>
+                        </div>
+                        <div class="control-group">
+                            <label for="borderStyleControl">边框样式</label>
+                            <select id="borderStyleControl">
+                                <option value="solid">实线 (solid)</option>
+                                <option value="dashed">虚线 (dashed)</option>
+                                <option value="dotted">点线 (dotted)</option>
+                                <option value="double">双线 (double)</option>
+                                <option value="groove">凹槽 (groove)</option>
+                                <option value="ridge">凸槽 (ridge)</option>
+                            </select>
+                        </div>
+                        <div class="control-group">
+                            <label for="borderColorControl">边框颜色</label>
+                            <input type="color" id="borderColorControl" value="#cccccc">
+                        </div>
+                        <div class="control-group">
+                            <label for="borderCollapseControl">边框合并</label>
+                            <select id="borderCollapseControl">
+                                <option value="collapse">合并 (collapse)</option>
+                                <option value="separate">分离 (separate)</option>
+                            </select>
+                        </div>
+                        <div class="control-group">
+                            <label for="cellPaddingControl">单元格内边距</label>
+                            <input type="range" id="cellPaddingControl" min="0" max="20" value="8">
+                            <span class="value-display">8px</span>
+                        </div>
+                        <div class="control-group">
+                            <label for="cellSpacingControl">单元格间距</label>
+                            <input type="range" id="cellSpacingControl" min="0" max="10" value="2">
+                            <span class="value-display">2px</span>
+                        </div>
+                        <div class="control-group">
+                            <label for="tableWidthControl">表格宽度</label>
+                            <select id="tableWidthControl">
+                                <option value="auto">自动 (auto)</option>
+                                <option value="100%">100%</option>
+                                <option value="75%">75%</option>
+                                <option value="50%">50%</option>
+                            </select>
+                        </div>
+                        <div class="control-group">
+                            <label for="zebraStripingControl">斑马线样式</label>
+                            <input type="checkbox" id="zebraStripingControl">
+                        </div>
+                        <div class="control-group">
+                            <label for="hoverEffectControl">悬停效果</label>
+                            <input type="checkbox" id="hoverEffectControl">
+                        </div>
+
+                    </div>
+                    <div class="preview-area">
+                        <table id="stylePreviewTable" class="style-preview-table">
+                            <thead>
+                                <tr>
+                                    <th>产品名称</th>
+                                    <th>价格</th>
+                                    <th>库存</th>
+                                    <th>评分</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>智能手机</td>
+                                    <td>¥3999</td>
+                                    <td>125</td>
+                                    <td>4.7</td>
+                                </tr>
+                                <tr>
+                                    <td>笔记本电脑</td>
+                                    <td>¥6999</td>
+                                    <td>82</td>
+                                    <td>4.9</td>
+                                </tr>
+                                <tr>
+                                    <td>无线耳机</td>
+                                    <td>¥899</td>
+                                    <td>210</td>
+                                    <td>4.5</td>
+                                </tr>
+                                <tr>
+                                    <td>智能手表</td>
+                                    <td>¥1599</td>
+                                    <td>64</td>
+                                    <td>4.3</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="css-code-display">
+                    <h3>生成的CSS代码</h3>
+                    <pre><code id="generatedCssCode">/* 表格样式将根据您的调整自动生成 */</code></pre>
+                    <button id="copyCssCode" class="copy-btn">复制代码</button>
+                </div>
+            </section>
+
+            <section id="interactive" class="content-section">
+                <h2>交互式表格构建器</h2>
+                <p>使用下面的工具创建自定义表格，调整行列数量和内容：</p>
+                
+                <div class="table-builder">
+                    <div class="builder-controls">
+                        <div class="control-group">
+                            <label for="rowsControl">行数</label>
+                            <input type="number" id="rowsControl" min="1" max="10" value="3">
+                        </div>
+                        <div class="control-group">
+                            <label for="colsControl">列数</label>
+                            <input type="number" id="colsControl" min="1" max="10" value="3">
+                        </div>
+                        <div class="control-group">
+                            <label for="headerCheckbox">包含表头</label>
+                            <input type="checkbox" id="headerCheckbox" checked>
+                        </div>
+                        <div class="control-group">
+                            <label for="footerCheckbox">包含表尾</label>
+                            <input type="checkbox" id="footerCheckbox">
+                        </div>
+                        <button id="generateTableBtn" class="action-btn">生成表格</button>
+                    </div>
+                    
+                    <div class="builder-preview">
+                        <div id="tableBuilderPreview"></div>
+                    </div>
+                    
+                    <div class="generated-code">
+                        <h3>生成的HTML代码</h3>
+                        <pre><code id="generatedHtmlCode"><!-- 表格HTML代码将在这里生成 --></code></pre>
+                        <button id="copyHtmlCode" class="copy-btn">复制代码</button>
+                    </div>
+                </div>
+            </section>
+
+            <section id="advanced" class="content-section">
+                <h2>高级表格技巧</h2>
+                
+                <div class="advanced-techniques">
+                    <div class="technique-item">
+                        <h3>单元格合并</h3>
+                        <p>使用 <code>colspan</code> 和 <code>rowspan</code> 属性可以合并单元格：</p>
+                        <div class="technique-demo">
+                            <div class="code-view">
+                                <pre><code>&lt;table border="1"&gt;
+  &lt;tr&gt;
+    &lt;th colspan="2"&gt;产品信息&lt;/th&gt;
+    &lt;th rowspan="2"&gt;评价&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;th&gt;名称&lt;/th&gt;
+    &lt;th&gt;价格&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;智能手机&lt;/td&gt;
+    &lt;td&gt;¥3999&lt;/td&gt;
+    &lt;td&gt;很好&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+                            </div>
+                            <div class="preview-view">
+                                <table border="1" class="demo-merged-table">
+                                    <tr>
+                                        <th colspan="2">产品信息</th>
+                                        <th rowspan="2">评价</th>
+                                    </tr>
+                                    <tr>
+                                        <th>名称</th>
+                                        <th>价格</th>
+                                    </tr>
+                                    <tr>
+                                        <td>智能手机</td>
+                                        <td>¥3999</td>
+                                        <td>很好</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="technique-item">
+                        <h3>响应式表格</h3>
+                        <p>使用CSS创建在移动设备上也能良好显示的响应式表格：</p>
+                        <div class="technique-demo">
+                            <div class="code-view">
+                                <pre><code>/* 响应式表格CSS */
+@media screen and (max-width: 600px) {
+  table.responsive {
+    border: 0;
+  }
+  
+  table.responsive thead {
+    display: none;
+  }
+  
+  table.responsive tr {
+    margin-bottom: 10px;
+    display: block;
     border: 1px solid #ddd;
-}
-
-th, td {
-    padding: 8px;
-    text-align: left;
-    border: 1px solid #ddd;
-}
-
-thead {
-    background-color: #f5f5f5;
-}
-
-tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-            </code>
-        </div>
-
-        <table class="property-table">
-            <tr>
-                <th>属性</th>
-                <th>说明</th>
-                <th>常用值</th>
-            </tr>
-            <tr>
-                <td>border-collapse</td>
-                <td>边框合并方式</td>
-                <td>collapse, separate</td>
-            </tr>
-            <tr>
-                <td>border-spacing</td>
-                <td>单元格间距</td>
-                <td>0, 2px</td>
-            </tr>
-            <tr>
-                <td>caption-side</td>
-                <td>表格标题位置</td>
-                <td>top, bottom</td>
-            </tr>
-            <tr>
-                <td>empty-cells</td>
-                <td>空单元格显示</td>
-                <td>show, hide</td>
-            </tr>
-        </table>
-
-        <h2 class="section-title">4. 高级表格示例</h2>
-        <div class="advanced-examples">
-            <div class="example-block">
-                <h3>合并单元格</h3>
-                <table class="merged-cells">
-                    <tr>
-                        <th rowspan="2">类别</th>
-                        <th colspan="2">销售情况</th>
-                    </tr>
-                    <tr>
-                        <th>数量</th>
-                        <th>金额</th>
-                    </tr>
-                    <tr>
-                        <td>电子产品</td>
-                        <td>100</td>
-                        <td>¥10000</td>
-                    </tr>
-                    <tr>
-                        <td>服装</td>
-                        <td>200</td>
-                        <td>¥6000</td>
-                    </tr>
-                </table>
-            </div>
-
-            <div class="example-block">
-                <h3>响应式表格</h3>
-                <div class="responsive-table-container">
-                    <table class="responsive-table">
-                        <thead>
-                            <tr>
-                                <th>产品名称</th>
-                                <th>价格</th>
-                                <th>库存</th>
-                                <th>状态</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td data-label="产品名称">智能手机</td>
-                                <td data-label="价格">¥2999</td>
-                                <td data-label="库存">50</td>
-                                <td data-label="状态">在售</td>
-                            </tr>
-                            <tr>
-                                <td data-label="产品名称">笔记本电脑</td>
-                                <td data-label="价格">¥5999</td>
-                                <td data-label="库存">30</td>
-                                <td data-label="状态">预订</td>
-                            </tr>
-                        </tbody>
-                    </table>
+  }
+  
+  table.responsive td {
+    display: block;
+    text-align: right;
+    border-bottom: 1px dotted #ccc;
+  }
+  
+  table.responsive td:last-child {
+    border-bottom: 0;
+  }
+  
+  table.responsive td:before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+  }
+}</code></pre>
+                            </div>
+                            <div class="preview-view">
+                                <p>在小屏幕设备上查看效果（宽度小于600px）</p>
+                                <div class="responsive-demo-container">
+                                    <table class="responsive-demo-table">
+                                        <thead>
+                                            <tr>
+                                                <th>产品</th>
+                                                <th>价格</th>
+                                                <th>库存</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td data-label="产品">智能手机</td>
+                                                <td data-label="价格">¥3999</td>
+                                                <td data-label="库存">125</td>
+                                            </tr>
+                                            <tr>
+                                                <td data-label="产品">笔记本电脑</td>
+                                                <td data-label="价格">¥6999</td>
+                                                <td data-label="库存">82</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </section>
+
+            <section id="ai-assistant" class="content-section">
+                <h2>AI辅助表格开发</h2>
+                <p>学习如何使用AI助手来帮助你创建和优化HTML表格：</p>
+                
+                <div class="ai-prompt-examples">
+                    <div class="prompt-example">
+                        <h3>示例提示词</h3>
+                        <div class="prompt-card">
+                            <p class="prompt-title">创建产品比较表格</p>
+                            <pre>请创建一个HTML表格，用于比较3种不同的智能手机产品。表格应包含以下列：产品名称、价格、屏幕尺寸、电池容量、摄像头规格和存储空间。请确保表格具有适当的表头和响应式设计。</pre>
+                            <button class="copy-prompt-btn">复制提示词</button>
+                        </div>
+                    </div>
+                    
+                    <div class="prompt-example">
+                        <h3>如何提问</h3>
+                        <ul class="prompt-tips">
+                            <li>明确指定表格的行数和列数</li>
+                            <li>描述表格的用途和需要包含的数据类型</li>
+                            <li>说明是否需要特殊的样式或功能（如排序、过滤）</li>
+                            <li>提及任何特定的响应式需求</li>
+                            <li>询问如何实现特定的表格功能（如合并单元格、交替行颜色）</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="try-it-yourself">
+                    <h3>尝试自己提问</h3>
+                    <p>在右侧的AI助手中输入你的问题，获取关于表格的帮助和建议。</p>
+                </div>
+            </section>
         </div>
     </div>
-
+    
     <script src="js/navbar.js"></script>
     <script src="js/table.js"></script>
 </body>
