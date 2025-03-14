@@ -1,0 +1,171 @@
+/* 导航栏基础样式 */
+.main-nav {
+    background-color: #2c3e50;
+    padding: 1rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 250px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 0 4px rgba(0,0,0,0.1);
+}
+
+/* 品牌标志样式 */
+.nav-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-brand a {
+    color: #ecf0f1;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-brand a:hover {
+    color: #3498db;
+}
+
+/* 导航菜单样式 */
+.nav-menu {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin: 2rem 0 0 0;
+    padding: 0;
+    gap: 0.5rem;
+}
+
+.nav-item {
+    position: relative;
+    width: 100%;
+}
+
+.nav-link {
+    color: #ecf0f1;
+    text-decoration: none;
+    padding: 0.75rem 1rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    display: block;
+    width: 100%;
+}
+
+.nav-link:hover {
+    background-color: #34495e;
+    color: #3498db;
+}
+
+/* 当前页面高亮 */
+.nav-link.active {
+    background-color: #3498db;
+    color: white;
+}
+
+/* 汉堡菜单按钮 */
+.nav-toggle {
+    display: none;
+    background: #2c3e50;
+    border: none;
+    cursor: pointer;
+    padding: 0.75rem;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.hamburger {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: #ecf0f1;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background-color: #ecf0f1;
+    transition: all 0.3s ease;
+}
+
+.hamburger::before {
+    top: -6px;
+}
+
+.hamburger::after {
+    bottom: -6px;
+}
+
+/* 汉堡菜单激活状态 */
+.hamburger.active {
+    background-color: transparent;
+}
+
+.hamburger.active::before {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+.hamburger.active::after {
+    transform: rotate(-45deg);
+    bottom: 0;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .main-nav {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+    }
+
+    .main-nav.active {
+        transform: translateX(0);
+    }
+
+    .nav-toggle {
+        display: block;
+        position: fixed;
+        top: 1rem;
+        left: 1rem;
+        z-index: 1001;
+    }
+
+    .nav-menu {
+        margin-top: 4rem;
+    }
+}
+
+/* 为页面主体添加左侧边距，防止被固定导航栏遮挡 */
+body {
+    padding-left: 270px;
+    padding-top: 20px;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-left: 20px;
+    }
+}
+
+/* 动画效果 */
+@keyframes slideDown {
+    from {
+        transform: translateY(-10px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.nav-menu.active {
+    animation: slideDown 0.3s ease forwards;
+}
