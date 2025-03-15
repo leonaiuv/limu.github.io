@@ -1,0 +1,63 @@
+/* 首页特定样式 */
+
+/* 数学概览部分 */
+.math-overview {
+    padding: var(--spacing-xl) 0;
+}
+
+.math-overview h2 {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+/* 学习路径部分 */
+.learning-path h2 {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.math-card {
+    animation: fadeIn 0.5s ease-out forwards;
+    opacity: 0;
+}
+
+.math-card:nth-child(1) { animation-delay: 0.1s; }
+.math-card:nth-child(2) { animation-delay: 0.2s; }
+.math-card:nth-child(3) { animation-delay: 0.3s; }
+.math-card:nth-child(4) { animation-delay: 0.4s; }
+
+/* 交互效果 */
+.math-card {
+    cursor: pointer;
+}
+
+.math-card:hover .math-card-header {
+    background-color: var(--secondary-color);
+}
+
+.math-card:hover .math-card-body li::before {
+    color: var(--accent-color);
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .math-overview {
+        padding: var(--spacing-lg) 0;
+    }
+
+    .math-card {
+        margin-bottom: var(--spacing-md);
+    }
+}

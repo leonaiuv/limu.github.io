@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>卷积神经网络交互演示</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>卷积神经网络(CNN)交互式学习</h1>
+            <p class="subtitle">通过交互式演示理解CNN的工作原理</p>
+        </header>
+
+        <nav class="navigation">
+            <button class="nav-btn active" data-section="intro">简介</button>
+            <button class="nav-btn" data-section="convolution">卷积层</button>
+            <button class="nav-btn" data-section="pooling">池化层</button>
+            <button class="nav-btn" data-section="fully-connected">全连接层</button>
+            <button class="nav-btn" data-section="complete">完整网络</button>
+        </nav>
+
+        <main class="content">
+            <!-- 简介部分 -->
+            <section id="intro" class="section active">
+                <h2>什么是卷积神经网络？</h2>
+                <div class="intro-content">
+                    <div class="text-content">
+                        <p>卷积神经网络(CNN)是一种专门用于处理网格类数据的深度学习架构，特别适合图像处理任务。</p>
+                        <p>主要组成部分：</p>
+                        <ul>
+                            <li>卷积层：提取特征</li>
+                            <li>池化层：降维压缩</li>
+                            <li>全连接层：分类决策</li>
+                        </ul>
+                    </div>
+                    <div class="cnn-overview">
+                        <div class="cnn-architecture"></div>
+                        <div class="architecture-labels">
+                            <span>输入图像</span>
+                            <span>卷积层</span>
+                            <span>池化层</span>
+                            <span>全连接层</span>
+                            <span>输出</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 卷积层演示 -->
+            <section id="convolution" class="section">
+                <h2>卷积层演示</h2>
+                <div class="convolution-demo">
+                    <div class="demo-controls">
+                        <div class="input-image-container">
+                            <h3>输入图像</h3>
+                            <div class="pixel-grid" id="input-grid"></div>
+                            <button id="reset-input">重置输入</button>
+                        </div>
+                        <div class="kernel-container">
+                            <h3>卷积核</h3>
+                            <div class="kernel-selection">
+                                <button data-kernel="edge">边缘检测</button>
+                                <button data-kernel="sharpen">锐化</button>
+                                <button data-kernel="blur">模糊</button>
+                            </div>
+                            <div class="pixel-grid small" id="kernel-grid"></div>
+                        </div>
+                        <div class="output-container">
+                            <h3>输出特征图</h3>
+                            <div class="pixel-grid" id="output-grid"></div>
+                        </div>
+                    </div>
+                    <div class="convolution-explanation">
+                        <h3>卷积操作说明</h3>
+                        <p>点击输入图像的像素来修改值，观察卷积操作的效果：</p>
+                        <ol>
+                            <li>卷积核在输入图像上滑动</li>
+                            <li>每个位置进行点乘和求和</li>
+                            <li>生成输出特征图</li>
+                        </ol>
+                        <div class="animation-controls">
+                            <button id="start-conv">开始动画</button>
+                            <button id="step-conv">单步演示</button>
+                            <button id="pause-conv">暂停</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 池化层演示 -->
+            <section id="pooling" class="section">
+                <h2>池化层演示</h2>
+                <div class="pooling-demo">
+                    <div class="demo-controls">
+                        <div class="input-container">
+                            <h3>输入特征图</h3>
+                            <div class="pixel-grid" id="pooling-input"></div>
+                        </div>
+                        <div class="pooling-controls">
+                            <h3>池化方式</h3>
+                            <div class="pooling-options">
+                                <button data-pooling="max" class="active">最大池化</button>
+                                <button data-pooling="avg">平均池化</button>
+                            </div>
+                            <div class="pooling-size">
+                                <label>池化窗口大小：</label>
+                                <select id="pool-size">
+                                    <option value="2">2x2</option>
+                                    <option value="3">3x3</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="output-container">
+                            <h3>池化结果</h3>
+                            <div class="pixel-grid" id="pooling-output"></div>
+                        </div>
+                    </div>
+                    <div class="pooling-explanation">
+                        <h3>池化操作说明</h3>
+                        <p>池化层的主要作用：</p>
+                        <ul>
+                            <li>降低特征图的维度</li>
+                            <li>提取主要特征</li>
+                            <li>减少计算量</li>
+                            <li>提供一定的平移不变性</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 全连接层演示 -->
+            <section id="fully-connected" class="section">
+                <h2>全连接层演示</h2>
+                <div class="fc-demo">
+                    <div class="network-visualization">
+                        <div class="layer input-layer">
+                            <h3>输入层</h3>
+                            <div class="neurons"></div>
+                        </div>
+                        <div class="layer hidden-layer">
+                            <h3>隐藏层</h3>
+                            <div class="neurons"></div>
+                        </div>
+                        <div class="layer output-layer">
+                            <h3>输出层</h3>
+                            <div class="neurons"></div>
+                        </div>
+                    </div>
+                    <div class="fc-controls">
+                        <h3>权重可视化</h3>
+                        <div class="weight-controls">
+                            <button id="randomize-weights">随机初始化权重</button>
+                            <button id="show-computation">显示计算过程</button>
+                        </div>
+                        <div class="computation-display">
+                            <p>选中神经元以查看其连接权重和计算过程</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 完整网络演示 -->
+            <section id="complete" class="section">
+                <h2>完整CNN网络演示</h2>
+                <div class="complete-demo">
+                    <div class="network-overview">
+                        <div class="stage" id="input-stage">
+                            <h3>输入图像</h3>
+                            <div class="stage-content"></div>
+                        </div>
+                        <div class="stage" id="conv1-stage">
+                            <h3>第一卷积层</h3>
+                            <div class="stage-content"></div>
+                        </div>
+                        <div class="stage" id="pool1-stage">
+                            <h3>第一池化层</h3>
+                            <div class="stage-content"></div>
+                        </div>
+                        <div class="stage" id="conv2-stage">
+                            <h3>第二卷积层</h3>
+                            <div class="stage-content"></div>
+                        </div>
+                        <div class="stage" id="pool2-stage">
+                            <h3>第二池化层</h3>
+                            <div class="stage-content"></div>
+                        </div>
+                        <div class="stage" id="fc-stage">
+                            <h3>全连接层</h3>
+                            <div class="stage-content"></div>
+                        </div>
+                        <div class="stage" id="output-stage">
+                            <h3>输出结果</h3>
+                            <div class="stage-content"></div>
+                        </div>
+                    </div>
+                    <div class="demo-controls">
+                        <div class="input-controls">
+                            <button id="load-sample">加载示例图片</button>
+                            <button id="start-demo">开始演示</button>
+                            <button id="step-demo">单步执行</button>
+                            <button id="reset-demo">重置</button>
+                        </div>
+                        <div class="progress-indicator">
+                            <div class="progress-bar"></div>
+                            <div class="stage-description"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
