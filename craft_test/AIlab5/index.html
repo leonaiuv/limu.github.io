@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI时代人机协作教育平台</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="box"></div>
+    <div class="content">
+        <header>
+            <h1>AI时代人机协作教育平台</h1>
+            <p class="subtitle">探索人工智能与教育的完美融合</p>
+        </header>
+        
+        <main>
+            <section class="features">
+                <div class="feature-item">
+                    <h2>智能学习</h2>
+                    <p>基于AI的个性化学习路径，适应每个学习者的独特需求</p>
+                </div>
+                <div class="feature-item">
+                    <h2>人机协作</h2>
+                    <p>打造教师与AI助手的完美配合，提升教学效果</p>
+                </div>
+                <div class="feature-item">
+                    <h2>实时反馈</h2>
+                    <p>即时评估学习效果，动态调整教学策略</p>
+                </div>
+            </section>
+
+            <section class="cta">
+                <h2>开启智能学习之旅</h2>
+                <p>加入我们，体验未来教育的无限可能</p>
+                <button class="cta-button">立即开始</button>
+            </section>
+        </main>
+    </div>
+
+    <script type="module">
+        import { AbstractShapeBg } from './background/AbstractShapeBg.module.js';
+
+        let colorbg = new AbstractShapeBg({
+            dom: "box",
+            colors: ["#309F46","#BCCD2C","#88AE24","#699613","#3C7908","#08620F"],
+            loop: true
+        });
+    </script>
+</body>
+</html>
