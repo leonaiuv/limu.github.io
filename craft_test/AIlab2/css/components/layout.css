@@ -1,0 +1,167 @@
+/* 布局组件样式 */
+
+/* 英雄区域 */
+.hero-section {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: var(--spacing-xl) 0;
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.hero-section h1 {
+    color: white;
+    font-size: 3rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.hero-section .lead {
+    font-size: 1.25rem;
+    opacity: 0.9;
+}
+
+/* 网格布局 */
+.math-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+    margin: var(--spacing-xl) 0;
+}
+
+/* 卡片组件 */
+.math-card {
+    background: white;
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    overflow: hidden;
+}
+
+.math-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.math-card-header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: var(--spacing-md);
+}
+
+.math-card-header h3 {
+    color: white;
+    margin: 0;
+}
+
+.math-card-body {
+    padding: var(--spacing-md);
+}
+
+.math-card-body ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.math-card-body li {
+    margin-bottom: var(--spacing-sm);
+    padding-left: var(--spacing-md);
+    position: relative;
+}
+
+.math-card-body li::before {
+    content: "•";
+    color: var(--secondary-color);
+    position: absolute;
+    left: 0;
+}
+
+/* 时间线样式 */
+.learning-path {
+    padding: var(--spacing-xl) 0;
+    background-color: white;
+}
+
+.path-timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: var(--spacing-xl) 0;
+}
+
+.path-timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background-color: var(--border-color);
+}
+
+.timeline-item {
+    margin-bottom: var(--spacing-xl);
+    position: relative;
+}
+
+.timeline-content {
+    background: white;
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-md);
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    width: calc(50% - 30px);
+    margin-left: auto;
+}
+
+.timeline-item:nth-child(odd) .timeline-content {
+    margin-left: 0;
+    margin-right: auto;
+}
+
+.timeline-content::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    width: 20px;
+    height: 20px;
+    background-color: var(--secondary-color);
+    border-radius: 50%;
+}
+
+.timeline-item:nth-child(odd) .timeline-content::before {
+    right: -40px;
+}
+
+.timeline-item:nth-child(even) .timeline-content::before {
+    left: -40px;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+
+    .path-timeline::before {
+        left: 0;
+    }
+
+    .timeline-content {
+        width: calc(100% - 30px);
+        margin-left: 30px;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-content {
+        margin-left: 30px;
+    }
+
+    .timeline-content::before {
+        left: -40px;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-content::before {
+        right: auto;
+        left: -40px;
+    }
+}
