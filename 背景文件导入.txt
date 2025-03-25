@@ -1,9 +1,0 @@
-
-<script src="AestheticFluidBg.js"></script>
-
-let colorbg = new Color4Bg.AestheticFluidBg({
-	dom: "box",
-	colors: ["#C2E5F2","#D0EFF4","#E0F7FE","#C6F4E3","#BDF2D8","#ADEDBF"],
-	loop: true
-})
-			

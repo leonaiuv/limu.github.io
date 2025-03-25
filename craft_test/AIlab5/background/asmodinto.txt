@@ -1,9 +1,0 @@
-
-import { AbstractShapeBg } from "jsm/AbstractShapeBg.module.js"
-
-let colorbg = new AbstractShapeBg({
-	dom: "box",
-	colors: ["#309F46","#BCCD2C","#88AE24","#699613","#3C7908","#08620F"],
-	loop: true
-})
-			
