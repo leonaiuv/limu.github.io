@@ -1,207 +1,240 @@
-/* === 基础设置 === */
+/* === 全局变量与基础设置 === */
 :root {
-    --primary-color: #6c63ff;
-    --secondary-color: #ff6584;
-    --accent-color: #2cdaba;
-    --dark-color: #2d2b55;
-    --light-color: #f5f5f7;
-    --text-color: #333;
-    --text-light: #777;
+    /* 主色调定义 */
+    --primary-color: #6c63ff;     /* 主色调：紫色 */
+    --secondary-color: #ff6584;   /* 次要色调：粉红色 */
+    --accent-color: #2cdaba;      /* 强调色：青绿色 */
+    --dark-color: #2d2b55;        /* 深色：深紫色 */
+    --light-color: #f5f5f7;       /* 浅色：浅灰色背景 */
+    --text-color: #333;           /* 文本颜色：深灰色 */
+    --text-light: #777;           /* 浅色文本：中灰色 */
+    
+    /* 渐变色定义 */
     --gradient-primary: linear-gradient(135deg, var(--primary-color), var(--accent-color));
     --gradient-secondary: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
-    --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.1);
-    --shadow-md: 0 5px 15px rgba(0, 0, 0, 0.15);
-    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.2);
-    --transition-fast: 0.3s ease;
-    --transition-medium: 0.5s ease;
-    --transition-slow: 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    --border-radius-sm: 5px;
-    --border-radius-md: 10px;
-    --border-radius-lg: 20px;
-    --font-primary: 'Poppins', sans-serif;
+    
+    /* 阴影定义 */
+    --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.1);   /* 小阴影 */
+    --shadow-md: 0 5px 15px rgba(0, 0, 0, 0.15);  /* 中阴影 */
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.2);  /* 大阴影 */
+    
+    /* 过渡效果定义 */
+    --transition-fast: 0.3s ease;                                  /* 快速过渡 */
+    --transition-medium: 0.5s ease;                                /* 中速过渡 */
+    --transition-slow: 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* 缓慢自定义曲线过渡 */
+    
+    /* 圆角定义 */
+    --border-radius-sm: 5px;   /* 小圆角 */
+    --border-radius-md: 10px;  /* 中圆角 */
+    --border-radius-lg: 20px;  /* 大圆角 */
+    
+    /* 字体定义 */
+    --font-primary: 'Poppins', sans-serif;  /* 主要字体 */
 }
 
+/* 全局样式重置 */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* HTML基础设置 */
 html {
-    scroll-behavior: smooth;
-    font-size: 62.5%; /* 10px = 1rem */
+    scroll-behavior: smooth;  /* 启用平滑滚动 */
+    font-size: 62.5%; /* 10px = 1rem，便于使用rem单位 */
 }
 
+/* 全局主体样式 */
 body {
     font-family: var(--font-primary);
     color: var(--text-color);
     background-color: var(--light-color);
-    font-size: 1.6rem;
-    line-height: 1.6;
-    overflow-x: hidden;
+    font-size: 1.6rem;  /* 16px标准文本大小 */
+    line-height: 1.6;   /* 行高比例 */
+    overflow-x: hidden; /* 防止水平滚动条 */
     position: relative;
 }
 
+/* 标题元素通用样式 */
 h1, h2, h3, h4, h5, h6 {
-    font-weight: 700;
-    line-height: 1.2;
+    font-weight: 700;     /* 粗体标题 */
+    line-height: 1.2;     /* 标题行高比例 */
     margin-bottom: 1.5rem;
 }
 
+/* 超链接通用样式 */
 a {
-    text-decoration: none;
-    color: var(--primary-color);
-    transition: var(--transition-fast);
+    text-decoration: none;       /* 移除下划线 */
+    color: var(--primary-color); /* 使用主色调 */
+    transition: var(--transition-fast); /* 添加过渡效果 */
 }
 
+/* 超链接鼠标悬停效果 */
 a:hover {
-    color: var(--secondary-color);
+    color: var(--secondary-color); /* 悬停时变为次要色调 */
 }
 
+/* 图片通用样式 */
 img {
-    max-width: 100%;
+    max-width: 100%;  /* 响应式图片 */
     height: auto;
 }
 
+/* 高亮文本样式 */
 .highlight {
-    color: var(--primary-color);
-    font-weight: 700;
+    color: var(--primary-color);  /* 使用主色调高亮 */
+    font-weight: 700;             /* 加粗高亮文本 */
 }
 
+/* 区块标题容器 */
 .section-header {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto 5rem;
+    text-align: center;   /* 居中对齐 */
+    max-width: 800px;     /* 最大宽度限制 */
+    margin: 0 auto 5rem;  /* 居中并添加底部间距 */
 }
 
+/* 区块标题样式 */
 .section-header h2 {
-    font-size: 4rem;
-    margin-bottom: 1.5rem;
-    position: relative;
+    font-size: 4rem;         /* 大标题文字大小 */
+    margin-bottom: 1.5rem;   /* 底部间距 */
+    position: relative;      /* 用于添加装饰元素 */
     display: inline-block;
 }
 
+/* 区块标题装饰线 */
 .section-header h2::after {
-    content: '';
-    position: absolute;
-    bottom: -1rem;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 4px;
-    background: var(--gradient-primary);
-    border-radius: 2px;
+    content: '';             /* 创建伪元素 */
+    position: absolute;      /* 绝对定位 */
+    bottom: -1rem;           /* 位于标题下方 */
+    left: 50%;               /* 水平居中 */
+    transform: translateX(-50%); /* 精确居中 */
+    width: 80px;             /* 装饰线宽度 */
+    height: 4px;             /* 装饰线高度 */
+    background: var(--gradient-primary); /* 使用渐变背景 */
+    border-radius: 2px;      /* 圆角装饰线 */
 }
 
+/* 区块副标题 */
 .section-header p {
-    color: var(--text-light);
-    font-size: 1.8rem;
+    color: var(--text-light); /* 使用浅色文本 */
+    font-size: 1.8rem;        /* 副标题文字大小 */
 }
 
-/* === 加载动画 === */
+/* === 页面加载动画样式 === */
 .loader-wrapper {
-    position: fixed;
+    position: fixed;         /* 固定在视窗 */
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: var(--dark-color);
+    background-color: var(--dark-color); /* 深色背景 */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    z-index: 9999;
-    transition: opacity 0.8s, visibility 0.8s;
+    z-index: 9999;           /* 最高层级确保在最上方 */
+    transition: opacity 0.8s, visibility 0.8s; /* 淡出过渡 */
 }
 
+/* 加载旋转图标 */
 .loader {
     width: 80px;
     height: 80px;
-    border: 5px solid rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    border-top-color: var(--primary-color);
-    border-left-color: var(--secondary-color);
-    animation: loader-spin 1s infinite ease-in-out;
+    border: 5px solid rgba(255, 255, 255, 0.1); /* 浅色边框 */
+    border-radius: 50%;      /* 圆形加载图标 */
+    border-top-color: var(--primary-color);    /* 顶部边框使用主色调 */
+    border-left-color: var(--secondary-color); /* 左侧边框使用次要色调 */
+    animation: loader-spin 1s infinite ease-in-out; /* 无限旋转动画 */
 }
 
+/* 加载文本 */
 .loader-text {
     color: white;
     font-size: 1.8rem;
     margin-top: 2rem;
-    letter-spacing: 0.5rem;
-    animation: fade-in-out 1.5s infinite ease-in-out;
+    letter-spacing: 0.5rem; /* 字母间距增大 */
+    animation: fade-in-out 1.5s infinite ease-in-out; /* 呼吸效果动画 */
 }
 
+/* 加载图标旋转动画 */
 @keyframes loader-spin {
     0% {
         transform: rotate(0deg);
     }
     100% {
-        transform: rotate(360deg);
+        transform: rotate(360deg); /* 旋转一周 */
     }
 }
 
+/* 文本淡入淡出动画 */
 @keyframes fade-in-out {
     0%, 100% {
-        opacity: 0.5;
+        opacity: 0.5; /* 开始和结束半透明 */
     }
     50% {
-        opacity: 1;
+        opacity: 1;   /* 中间完全不透明 */
     }
 }
 
+/* 加载动画隐藏状态 */
 .loader-wrapper.hidden {
-    opacity: 0;
-    visibility: hidden;
+    opacity: 0;       /* 完全透明 */
+    visibility: hidden; /* 隐藏元素 */
 }
 
-/* === 导航栏 === */
+/* === 导航栏样式 === */
 .main-nav {
-    position: fixed;
+    position: fixed;  /* 固定在视窗顶部 */
     top: 0;
     left: 0;
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* 两端对齐 */
     align-items: center;
     padding: 2rem 8%;
-    z-index: 1000;
-    transition: var(--transition-medium);
+    z-index: 1000;    /* 高层级确保显示在内容上方 */
+    transition: var(--transition-medium); /* 平滑过渡效果 */
 }
 
+/* 滚动时导航栏样式 */
 .main-nav.scrolled {
-    background-color: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    box-shadow: var(--shadow-sm);
-    padding: 1.5rem 8%;
+    background-color: rgba(255, 255, 255, 0.95); /* 半透明白色背景 */
+    backdrop-filter: blur(10px);                 /* 模糊背景效果 */
+    box-shadow: var(--shadow-sm);                /* 添加阴影 */
+    padding: 1.5rem 8%;                          /* 减小内边距使导航栏变窄 */
 }
 
+/* 网站标志 */
 .logo {
     font-size: 2.5rem;
     font-weight: 700;
     color: var(--dark-color);
 }
 
+/* 导航链接容器 */
 .nav-links {
     display: flex;
-    gap: 2.5rem;
+    gap: 2.5rem;  /* 链接之间的间距 */
 }
 
+/* 导航链接样式 */
 .nav-link {
     color: var(--dark-color);
     font-weight: 500;
-    position: relative;
+    position: relative; /* 用于添加悬停下划线效果 */
 }
 
+/* 导航链接悬停指示器 */
 .nav-link::after {
     content: '';
     position: absolute;
     bottom: -0.5rem;
     left: 0;
-    width: 0;
+    width: 0; /* 初始宽度为0，不可见 */
     height: 2px;
     background: var(--gradient-primary);
-    transition: var(--transition-fast);
+    transition: width var(--transition-fast); /* 宽度变化过渡 */
 }
 
 .nav-link:hover::after,
