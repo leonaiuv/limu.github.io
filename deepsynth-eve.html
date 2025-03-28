@@ -1,0 +1,222 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeepSynthEVE - 详情</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="deepsynth-eve.css">
+    <!-- 引入Google字体 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- 引入GSAP动画库 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body>
+    <!-- 页面加载动画 -->
+    <div class="loader-wrapper">
+        <div class="loader"></div>
+        <div class="loader-text">请稍候...</div>
+    </div>
+
+    <!-- 顶部导航栏 -->
+    <nav class="main-nav">
+        <div class="logo">
+            <a href="index.html" class="logo-container">
+                <span class="logo-text">
+                    <span class="highlight">Deep</span>Synth
+                </span>
+                <div class="logo-icon">
+                    <svg viewBox="0 0 100 100" class="logo-svg">
+                        <circle class="logo-circle" cx="50" cy="50" r="45" />
+                        <path class="logo-path" d="M25,50 L75,50 M50,25 L50,75 M35,35 L65,65 M35,65 L65,35" />
+                    </svg>
+                </div>
+            </a>
+        </div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">返回首页</a>
+        </div>
+    </nav>
+
+    <!-- 产品英雄区 -->
+    <section class="product-hero">
+        <div class="product-hero-content">
+            <h1>Deep<span class="highlight">Synth</span>EVE</h1>
+            <p class="product-subtitle">顶级通用编程系统</p>
+            <div class="tech-stack">
+                <span class="tech-tag">智能编程</span>
+                <span class="tech-tag">多语言支持</span>
+                <span class="tech-tag">自动化</span>
+                <span class="tech-tag">代码生成</span>
+                <span class="tech-tag">系统集成</span>
+                <span class="tech-tag">智能分析</span>
+            </div>
+        </div>
+        <div class="product-hero-image">
+            <img src="img/DeepSynthEVE横板.png" alt="DeepSynthEVE">
+        </div>
+    </section>
+
+    <!-- 功能特性区 -->
+    <section class="features-section">
+        <div class="section-header">
+            <h2>核心<span class="highlight">功能</span></h2>
+            <p>全方位的智能编程解决方案</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="16 18 22 12 16 6"></polyline>
+                        <polyline points="8 6 2 12 8 18"></polyline>
+                    </svg>
+                </div>
+                <h3>多语言支持</h3>
+                <p>支持多种主流编程语言，无缝切换和协作</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                        <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                        <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                    </svg>
+                </div>
+                <h3>智能代码生成</h3>
+                <p>基于上下文的智能代码生成和补全</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                        <line x1="8" y1="21" x2="16" y2="21"></line>
+                        <line x1="12" y1="17" x2="12" y2="21"></line>
+                    </svg>
+                </div>
+                <h3>系统集成</h3>
+                <p>与各类开发工具和平台无缝集成</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 20h9"></path>
+                        <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+                    </svg>
+                </div>
+                <h3>代码重构</h3>
+                <p>智能代码分析和优化建议</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 技术细节区 -->
+    <section class="tech-details-section">
+        <div class="section-header">
+            <h2>技术<span class="highlight">细节</span></h2>
+            <p>深入了解DeepSynthEVE的核心技术</p>
+        </div>
+        <div class="tech-details-content">
+            <div class="tech-detail-item">
+                <h3>智能分析引擎</h3>
+                <ul>
+                    <li>深度学习代码分析</li>
+                    <li>多语言语义理解</li>
+                    <li>上下文感知推理</li>
+                </ul>
+            </div>
+            <div class="tech-detail-item">
+                <h3>自动化工具链</h3>
+                <ul>
+                    <li>自动化测试生成</li>
+                    <li>持续集成支持</li>
+                    <li>自动化部署流程</li>
+                </ul>
+            </div>
+            <div class="tech-detail-item">
+                <h3>协作功能</h3>
+                <ul>
+                    <li>多人实时协作</li>
+                    <li>版本控制集成</li>
+                    <li>团队工作流支持</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 使用场景区 -->
+    <section class="use-cases-section">
+        <div class="section-header">
+            <h2>应用<span class="highlight">场景</span></h2>
+            <p>探索DeepSynthEVE的广泛应用</p>
+        </div>
+        <div class="use-cases-grid">
+            <div class="use-case-card">
+                <h3>企业开发</h3>
+                <p>为企业提供全面的开发解决方案，提高团队效率</p>
+            </div>
+            <div class="use-case-card">
+                <h3>系统集成</h3>
+                <p>帮助企业实现各类系统的无缝集成和互操作</p>
+            </div>
+            <div class="use-case-card">
+                <h3>智能开发</h3>
+                <p>利用AI技术加速开发流程，提升代码质量</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 开始使用区域 -->
+    <section class="get-started-section">
+        <div class="get-started-content">
+            <h2>开始使用 <span class="highlight">DeepSynthEVE</span></h2>
+            <p>体验下一代智能编程系统</p>
+            <button class="primary-btn">免费试用</button>
+        </div>
+    </section>
+
+    <!-- 页面底部 -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <span class="highlight">Deep</span>Synth
+            </div>
+            <div class="footer-links">
+                <div class="footer-links-column">
+                    <h4>快速链接</h4>
+                    <a href="index.html">返回首页</a>
+                    <a href="#features">功能特性</a>
+                    <a href="#tech-details">技术细节</a>
+                    <a href="#use-cases">使用场景</a>
+                </div>
+                <div class="footer-links-column">
+                    <h4>资源</h4>
+                    <a href="#">文档中心</a>
+                    <a href="#">API参考</a>
+                    <a href="#">示例代码</a>
+                </div>
+                <div class="footer-links-column">
+                    <h4>支持</h4>
+                    <a href="#">帮助中心</a>
+                    <a href="#">社区论坛</a>
+                    <a href="#">联系我们</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 DeepSynth. 保留所有权利.</p>
+        </div>
+    </footer>
+
+    <!-- 自定义鼠标跟随效果 -->
+    <div class="cursor-follower"></div>
+    <div class="cursor-dot"></div>
+
+    <!-- JavaScript脚本引用 -->
+    <script src="script.js"></script>
+    <script src="deepsynth-eve.js"></script>
+</body>
+</html>
