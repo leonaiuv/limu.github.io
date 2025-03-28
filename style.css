@@ -1,13 +1,18 @@
 /* === 全局变量与基础设置 === */
 :root {
-    /* 主色调定义 */
-    --primary-color: #6c63ff;     /* 主色调：紫色 */
-    --secondary-color: #ff6584;   /* 次要色调：粉红色 */
-    --accent-color: #2cdaba;      /* 强调色：青绿色 */
-    --dark-color: #2d2b55;        /* 深色：深紫色 */
-    --light-color: #f5f5f7;       /* 浅色：浅灰色背景 */
-    --text-color: #333;           /* 文本颜色：深灰色 */
-    --text-light: #777;           /* 浅色文本：中灰色 */
+    /* 主色调定义 - 科技感配色 */
+    --primary-color: #00f2fe;     /* 主色调：霓虹蓝 */
+    --secondary-color: #4facfe;   /* 次要色调：渐变蓝 */
+    --accent-color: #7d45ff;      /* 强调色：深紫色 */
+    --dark-color: #151c2c;        /* 深色：深空蓝 */
+    --light-color: #f0f3ff;       /* 浅色：淡蓝背景 */
+    --text-color: #2a2f4f;        /* 文本颜色：深靛蓝 */
+    --text-light: #6e7899;        /* 浅色文本：灰蓝色 */
+    
+    /* 新增渐变色 */
+    --gradient-tech: linear-gradient(120deg, #00f2fe 0%, #4facfe 50%, #7d45ff 100%);
+    --gradient-neon: linear-gradient(to right, #00f2fe, #4facfe);
+    --gradient-dark: linear-gradient(to right, #151c2c, #2a2f4f);
     
     /* 渐变色定义 */
     --gradient-primary: linear-gradient(135deg, var(--primary-color), var(--accent-color));
@@ -205,11 +210,116 @@ img {
     padding: 1.5rem 8%;                          /* 减小内边距使导航栏变窄 */
 }
 
-/* 网站标志 */
-.logo {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--dark-color);
+/* 网站标志容器 */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    cursor: pointer;
+}
+
+/* Logo文字样式 */
+.logo-text {
+    font-size: 2.8rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+/* Logo图标容器 */
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    position: relative;
+}
+
+/* Logo SVG样式 */
+.logo-svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* Logo圆圈样式 */
+.logo-circle {
+    fill: none;
+    stroke: var(--primary-color);
+    stroke-width: 3;
+    stroke-dasharray: 283;
+    stroke-dashoffset: 283;
+    animation: drawCircle 2s ease forwards, glowEffect 2s ease-in-out infinite;
+}
+
+/* Logo路径样式 */
+.logo-path {
+    fill: none;
+    stroke: var(--accent-color);
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-dasharray: 200;
+    stroke-dashoffset: 200;
+    animation: drawPath 2s ease forwards 0.5s;
+}
+
+/* Logo悬停效果 */
+.logo-container:hover .logo-text {
+    transform: scale(1.05);
+    text-shadow: 0 0 15px rgba(108, 99, 255, 0.5);
+}
+
+.logo-container:hover .logo-circle {
+    animation: spinCircle 4s linear infinite;
+}
+
+.logo-container:hover .logo-path {
+    animation: glowPath 1.5s ease-in-out infinite;
+}
+
+/* Logo动画关键帧 */
+@keyframes drawCircle {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes drawPath {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes spinCircle {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes glowEffect {
+    0%, 100% {
+        filter: drop-shadow(0 0 2px var(--primary-color));
+    }
+    50% {
+        filter: drop-shadow(0 0 10px var(--primary-color));
+    }
+}
+
+@keyframes glowPath {
+    0%, 100% {
+        stroke-width: 3;
+        filter: drop-shadow(0 0 2px var(--accent-color));
+    }
+    50% {
+        stroke-width: 4;
+        filter: drop-shadow(0 0 8px var(--accent-color));
+    }
 }
 
 /* 导航链接容器 */
