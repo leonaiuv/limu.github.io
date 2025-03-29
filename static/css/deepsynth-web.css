@@ -1,0 +1,609 @@
+/* === 产品英雄区样式 === */
+.page-container {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    position: relative;
+    z-index: 1;
+    margin-top: 0;
+}
+
+.product-hero {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 12rem 5% 6rem; /* 增加顶部内边距，为固定导航栏留出空间 */
+    background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.05) 0%, rgba(var(--secondary-rgb), 0.05) 100%);
+    overflow: hidden;
+    margin-top: 0;
+    min-height: 500px;
+}
+
+.product-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../images/grid-pattern.svg');
+    opacity: 0.1;
+    animation: backgroundShift 20s linear infinite;
+    z-index: 0;
+}
+
+@keyframes backgroundShift {
+    0% { background-position: 0 0; }
+    100% { background-position: 100px 100px; }
+}
+
+.product-hero-content {
+    flex: 1;
+    min-width: 300px;
+    max-width: 50%;
+    z-index: 2;
+    padding-right: 4rem;
+    position: relative;
+}
+
+.product-hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, var(--text-color), var(--primary-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shimmerText 3s infinite;
+}
+
+@keyframes shimmerText {
+    0% { background-position: -100% 0; }
+    100% { background-position: 200% 0; }
+}
+
+.product-subtitle {
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+}
+
+/* 按钮样式 */
+.actions {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.actions .primary-btn,
+.actions .secondary-btn {
+    padding: 1rem 2.5rem;
+    border-radius: 30px;
+    font-size: 1.6rem;
+    font-weight: 500;
+    transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.actions .primary-btn {
+    background: var(--gradient-primary);
+    color: white;
+    border: none;
+}
+
+.actions .secondary-btn {
+    background: transparent;
+    color: var(--text-color);
+    border: 2px solid var(--primary-color);
+}
+
+.actions .primary-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(var(--primary-rgb), 0.3);
+}
+
+.actions .secondary-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(var(--primary-rgb), 0.15);
+    background: rgba(var(--primary-rgb), 0.05);
+}
+
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.tech-tag {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 30px;
+    background: rgba(var(--primary-rgb), 0.1);
+    color: var(--primary-color);
+    font-weight: 500;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(var(--primary-rgb), 0.1);
+}
+
+.tech-tag::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--primary-color));
+    background-size: 200% 100%;
+    z-index: -1;
+    animation: gradientBorder 3s linear infinite;
+    border-radius: 30px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+@keyframes gradientBorder {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.tech-tag:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(var(--primary-rgb), 0.2);
+}
+
+.tech-tag:hover::before {
+    opacity: 1;
+}
+
+.product-hero-image {
+    flex: 1;
+    min-width: 300px;
+    max-width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    z-index: 2;
+    position: relative;
+}
+
+.product-hero-image img {
+    max-width: 100%;
+    max-height: 400px;
+    height: auto;
+    border-radius: 12px;
+    transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transform: rotateY(-5deg) rotateX(5deg);
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.1), 
+               -20px -20px 50px rgba(255, 255, 255, 0.1);
+    object-fit: contain;
+}
+
+.product-hero-image:hover img {
+    transform: rotateY(0deg) rotateX(0deg);
+}
+
+/* === 功能特性区样式扩展 === */
+.features-section {
+    padding: 5rem 5%;
+    background: linear-gradient(to top, rgba(var(--primary-rgb), 0.03), transparent);
+    position: relative;
+    z-index: 2;
+}
+
+.feature-card {
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+    position: relative;
+    z-index: 1;
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.1) 0%, rgba(var(--secondary-rgb), 0.05) 100%);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(var(--primary-rgb), 0.1);
+}
+
+.feature-card:hover::before {
+    opacity: 1;
+}
+
+.feature-card .feature-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(var(--primary-rgb), 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card .feature-icon::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(transparent, rgba(var(--primary-rgb), 0.3), transparent 30%);
+    animation: rotate 4s linear infinite;
+}
+
+@keyframes rotate {
+    100% { transform: rotate(360deg); }
+}
+
+.feature-card .feature-icon svg {
+    width: 30px;
+    height: 30px;
+    position: relative;
+    z-index: 1;
+    transition: transform 0.5s ease;
+}
+
+.feature-card:hover .feature-icon svg {
+    transform: rotateY(360deg);
+}
+
+/* === 技术细节区样式 === */
+.tech-details-section {
+    padding: 5rem 5%;
+    background: linear-gradient(to bottom, rgba(var(--secondary-rgb), 0.03), transparent);
+    position: relative;
+    z-index: 2;
+}
+
+.tech-details-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.tech-detail-item {
+    padding: 2.5rem;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    transition: all 0.4s ease;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.tech-detail-item::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: linear-gradient(45deg, rgba(var(--primary-rgb), 0.1), rgba(var(--secondary-rgb), 0.05));
+    filter: blur(20px);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.tech-detail-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(var(--primary-rgb), 0.1);
+}
+
+.tech-detail-item:hover::before {
+    opacity: 1;
+}
+
+.tech-detail-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    position: relative;
+    display: inline-block;
+}
+
+.tech-detail-item h3::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 2px;
+    bottom: -8px;
+    left: 0;
+    background: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.tech-detail-item:hover h3::after {
+    width: 100%;
+}
+
+.tech-detail-item ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tech-detail-item ul li {
+    margin-bottom: 0.8rem;
+    padding-left: 1.5rem;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.tech-detail-item ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    font-weight: bold;
+    transform: scale(0);
+    transition: transform 0.3s ease;
+}
+
+.tech-detail-item:hover ul li::before {
+    transform: scale(1);
+}
+
+.tech-detail-item:hover ul li {
+    transform: translateX(5px);
+}
+
+/* === 使用场景区样式 === */
+.use-cases-section {
+    padding: 5rem 5%;
+    background: linear-gradient(to top, rgba(var(--primary-rgb), 0.03), transparent);
+    position: relative;
+    z-index: 2;
+}
+
+.use-cases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.use-case-card {
+    padding: 2.5rem;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+    transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.use-case-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    transition: height 0.5s ease;
+    z-index: -1;
+}
+
+.use-case-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 20px 40px rgba(var(--primary-rgb), 0.15);
+}
+
+.use-case-card:hover::before {
+    height: 100%;
+    opacity: 0.1;
+}
+
+.use-case-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.use-case-card p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* === 开始使用区样式 === */
+.get-started-section {
+    padding: 6rem 5%;
+    background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.1) 0%, rgba(var(--secondary-rgb), 0.05) 100%);
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.get-started-section::before {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(var(--primary-rgb), 0.2), transparent 70%);
+    top: -150px;
+    right: -150px;
+    border-radius: 50%;
+    filter: blur(50px);
+    animation: pulse 5s infinite alternate;
+}
+
+.get-started-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.get-started-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.get-started-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
+    color: var(--text-secondary);
+}
+
+.get-started-section .primary-btn {
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.get-started-section .primary-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: transform 0.4s ease;
+    z-index: -1;
+    transform: skewX(-25deg);
+}
+
+.get-started-section .primary-btn:hover::after {
+    transform: translateX(200%) skewX(-25deg);
+}
+
+/* === 响应式设计 === */
+@media (max-width: 1200px) {
+    .product-hero-content,
+    .product-hero-image {
+        padding: 0 2%;
+    }
+}
+
+@media (max-width: 992px) {
+    .product-hero {
+        padding: 10rem 5% 4rem;
+        flex-direction: column;
+    }
+
+    .product-hero-content,
+    .product-hero-image {
+        width: 100%;
+        max-width: 100%;
+        text-align: center;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .product-hero-image {
+        margin-top: 3rem;
+    }
+
+    .tech-stack,
+    .actions {
+        justify-content: center;
+    }
+
+    .product-hero-image img {
+        max-height: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .product-hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .product-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .actions {
+        flex-direction: column;
+        width: 100%;
+        max-width: 300px;
+        margin: 2rem auto 0;
+    }
+
+    .tech-details-content,
+    .use-cases-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .get-started-content h2 {
+        font-size: 2rem;
+    }
+
+    .get-started-content p {
+        font-size: 1rem;
+    }
+}
+
+/* === 动画效果 === */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.1);
+    }
+}
+
+/* 代码片段样式 */
+.code-snippet {
+    position: absolute;
+    font-family: 'Fira Code', monospace;
+    color: var(--primary-color);
+    opacity: 0.1;
+    font-size: 0.8rem;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* 实现3D卡片效果的样式 */
+.tilt-effect {
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+}
+
+.tilt-inner {
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
