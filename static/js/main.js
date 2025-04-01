@@ -17,6 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
     initCursorEffect();       // 初始化鼠标跟随效果
     initFloatingElements();   // 初始化悬浮元素
     
+    // 检查 React 是否加载成功
+    checkReactComponents();
+    
     // 立即显示所有内容，不使用动画，防止元素消失
     document.querySelectorAll('.animate, .feature-card, .project-card').forEach(element => {
         element.classList.add('fade-in');
@@ -25,6 +28,29 @@ document.addEventListener('DOMContentLoaded', () => {
         element.style.transition = 'none'; // 禁用过渡效果防止元素移动
     });
 });
+
+// ===== 检查 React 组件加载状态 =====
+function checkReactComponents() {
+    // 检查 React 和 React 组件是否成功加载
+    if (window.React && window.ReactDOM && window.MaterialUI) {
+        console.log('React 组件库已加载，启用增强 UI 组件');
+        
+        // 如果 React 导航组件容器存在内容，隐藏原始导航栏
+        setTimeout(() => {
+            const reactNavContainer = document.getElementById('react-navbar-container');
+            const originalNav = document.getElementById('original-nav');
+            
+            if (reactNavContainer && reactNavContainer.childNodes.length > 0 && originalNav) {
+                console.log('React 导航组件已加载，隐藏原始导航栏');
+                originalNav.style.display = 'none';
+            } else {
+                console.log('未检测到 React 导航组件，保留原始导航栏');
+            }
+        }, 500); // 延迟检查，确保 React 组件有时间渲染
+    } else {
+        console.log('未检测到 React 组件库，使用原始 UI');
+    }
+}
 
 // ===== 导航功能初始化 =====
 function initNavigation() {
@@ -43,16 +69,20 @@ function initNavigation() {
     });
 
     // 移动端汉堡菜单点击事件处理
-    hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        navLinks.classList.toggle('active');
-    });
+    if (hamburger) {
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+    }
 
     // 导航链接点击后关闭移动端菜单
     navItems.forEach(item => {
         item.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            navLinks.classList.remove('active');
+            if (hamburger) {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
         });
     });
 }

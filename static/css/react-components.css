@@ -1,0 +1,141 @@
+/* React 组件样式 */
+
+/* 导航栏样式 */
+.react-nav {
+  transition: all 0.3s ease;
+}
+
+.react-nav.scrolled {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.react-nav .MuiToolbar-root {
+  padding: 0.8rem 2rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.desktop-only {
+  display: flex;
+  gap: 1rem;
+}
+
+@media (max-width: 900px) {
+  .desktop-only {
+    display: none;
+  }
+}
+
+.mui-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.mui-btn::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #64ffda;
+  transition: width 0.3s ease;
+}
+
+.mui-btn:hover::after {
+  width: 100%;
+}
+
+/* 特性卡片样式 */
+.enhanced-feature-card {
+  height: 100%;
+}
+
+.enhanced-feature-card .feature-icon {
+  background: rgba(100, 255, 218, 0.1);
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.enhanced-feature-card .feature-icon svg {
+  width: 32px;
+  height: 32px;
+  stroke: #64ffda;
+}
+
+/* 按钮样式 */
+.enhanced-primary-btn,
+.enhanced-secondary-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.enhanced-primary-btn::before,
+.enhanced-secondary-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: skewX(-30deg);
+  transition: 0.5s;
+}
+
+.enhanced-primary-btn:hover::before,
+.enhanced-secondary-btn:hover::before {
+  left: 100%;
+}
+
+/* 动画效果 */
+.fade-in {
+  animation: fadeIn 0.8s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* React 容器 */
+#react-navbar-container {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+#react-features-container {
+  margin-top: 2rem;
+}
+
+/* 移动端样式优化 */
+@media (max-width: 768px) {
+  .react-nav .MuiToolbar-root {
+    padding: 0.8rem 1rem;
+  }
+  
+  .enhanced-feature-card .MuiCardContent-root {
+    padding: 20px;
+  }
+}
+
+/* 暗色主题优化 */
+.MuiDrawer-paper {
+  padding-top: 1rem;
+}
+
+.MuiListItem-root {
+  padding: 0.8rem 1.5rem;
+  font-size: 1.1rem;
+}
+
+/* Material Icons 样式修复 */
+.material-icons {
+  font-size: 24px;
+} 
