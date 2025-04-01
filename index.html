@@ -4,8 +4,10 @@
     <!-- 页面基本设置 -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DeepSynth - 智能开发助手</title>
+    <title>李沐 - AI Agent工程师</title>
     <link rel="stylesheet" href="static/css/main.css">
+    <link rel="stylesheet" href="static/css/react-components.css">
+    <link rel="stylesheet" href="static/css/personal-styles.css">
     <!-- 引入Google字体 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,20 +17,32 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <!-- 引入Three.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.155.0/three.min.js"></script>
+    <!-- 引入React和ReactDOM -->
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+    <!-- 引入Material UI -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <script src="https://unpkg.com/@mui/material@5.14.10/umd/material-ui.production.min.js" crossorigin></script>
+    <!-- 引入Babel用于JSX转换 -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 </head>
 <body>
     <!-- 页面加载动画 -->
     <div class="loader-wrapper">
         <div class="loader"></div>
-        <div class="loader-text">正在加载 DeepSynth...</div>
+        <div class="loader-text">正在加载...</div>
     </div>
+    
+    <!-- React导航栏容器 -->
+    <div id="react-navbar-container"></div>
 
-    <!-- 顶部导航栏 -->
-    <nav class="main-nav">
+    <!-- 原有导航栏 (保留作为备用，可以在React成功加载后隐藏) -->
+    <nav class="main-nav" id="original-nav">
         <div class="logo">
             <a href="#" class="logo-container">
                 <span class="logo-text">
-                    <span class="highlight">Deep</span>Synth
+                    <span class="highlight">李</span>沐
                 </span>
                 <div class="logo-icon">
                     <svg viewBox="0 0 100 100" class="logo-svg">
@@ -40,10 +54,11 @@
         </div>
         <div class="nav-links">
             <a href="#hero" class="nav-link">首页</a>
-            <a href="#about" class="nav-link">关于我们</a>
-            <a href="#features" class="nav-link">产品特点</a>
-            <a href="#projects" class="nav-link">产品系列</a>
-            <a href="#contact" class="nav-link">联系我们</a>
+            <a href="#about" class="nav-link">关于我</a>
+            <a href="#skills" class="nav-link">技能</a>
+            <a href="#projects" class="nav-link">作品集</a>
+            <a href="#experience" class="nav-link">经历</a>
+            <a href="#contact" class="nav-link">联系我</a>
         </div>
         <!-- 移动端汉堡菜单按钮 -->
         <div class="hamburger">
@@ -61,19 +76,23 @@
         </div>
         <div class="side-menu-item" data-section="about">
             <div class="dot"></div>
-            <div class="label">关于我们</div>
+            <div class="label">关于我</div>
         </div>
-        <div class="side-menu-item" data-section="features">
+        <div class="side-menu-item" data-section="skills">
             <div class="dot"></div>
-            <div class="label">产品特点</div>
+            <div class="label">技能</div>
         </div>
         <div class="side-menu-item" data-section="projects">
             <div class="dot"></div>
-            <div class="label">产品系列</div>
+            <div class="label">作品集</div>
+        </div>
+        <div class="side-menu-item" data-section="experience">
+            <div class="dot"></div>
+            <div class="label">经历</div>
         </div>
         <div class="side-menu-item" data-section="contact">
             <div class="dot"></div>
-            <div class="label">联系我们</div>
+            <div class="label">联系我</div>
         </div>
     </div>
 
@@ -85,6 +104,7 @@
         </div>
         <!-- 英雄区内容 -->
         <div class="hero-content animate fade-in">
+            <!-- 这里会被PersonalHero组件替换 -->
             <h1 class="hero-title">
                 探索<span class="highlight">AI驱动</span>的<br>
                 下一代开发工具
@@ -109,325 +129,203 @@
         </div>
     </section>
 
-    <!-- 关于我们区块 -->
+    <!-- 关于我区块 -->
     <section id="about" class="about-section">
         <!-- 区块标题 -->
         <div class="section-header">
-            <h2>关于 <span class="highlight">DeepSynth</span></h2>
-            <p>我们致力于提供智能化开发解决方案</p>
+            <h2>关于 <span class="highlight">我</span></h2>
+            <p>了解我的背景和专业领域</p>
         </div>
-        <!-- 特性展示网格 -->
-        <div class="floating-elements">
-            <div class="float-element"></div>
-            <div class="float-element"></div>
-            <div class="float-element"></div>
-            <div class="float-element"></div>
-            <div class="float-element"></div>
-        </div>
-        <div class="features-grid">
-            <!-- 特性卡片：用户体验 -->
-            <div class="feature-card animate">
-                <div class="feature-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-                        <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-                        <line x1="12" y1="22.08" x2="12" y2="12"></line>
-                    </svg>
-                </div>
-                <h3>智能代码生成</h3>
-                <p>通过AI技术理解开发者意图，自动生成高质量代码。</p>
+        <!-- 内容网格 -->
+        <div class="about-grid">
+            <!-- 左侧：个人信息卡片 -->
+            <div class="personal-info-container">
+                <!-- 这里会被PersonalCard组件替换 -->
             </div>
-            <!-- 特性卡片：创意设计 -->
-            <div class="feature-card animate animate-delay-1">
-                <div class="feature-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                        <polyline points="14 2 14 8 20 8"></polyline>
-                        <line x1="16" y1="13" x2="8" y2="13"></line>
-                        <line x1="16" y1="17" x2="8" y2="17"></line>
-                        <polyline points="10 9 9 9 8 9"></polyline>
-                    </svg>
+            <!-- 右侧：个人介绍 -->
+            <div class="about-content">
+                <h3>我是谁？</h3>
+                <p>作为一名专注于AI Agent研发的工程师，我致力于构建能够自主决策和执行任务的智能系统。我的专业领域包括大语言模型集成、工具调用框架设计、多模态交互和复杂推理链实现。</p>
+                
+                <h3>我做什么？</h3>
+                <p>我设计并实现能够理解用户需求、制定计划并执行复杂任务的AI助手。这些系统能够调用各种工具和API，处理数据，并生成有用的输出，大大提高工作效率和创新能力。</p>
+                
+                <h3>为什么选择我？</h3>
+                <p>我深入理解大语言模型的能力和局限性，能够设计出稳健、可靠且具有扩展性的Agent系统。我的解决方案注重安全性、透明度和用户体验，确保AI助手能够真正为用户创造价值。</p>
+                
+                <div class="social-links">
+                    <a href="https://github.com/limu" target="_blank" class="social-link">GitHub</a>
+                    <a href="#" target="_blank" class="social-link">LinkedIn</a>
+                    <a href="#" target="_blank" class="social-link">Twitter</a>
                 </div>
-                <h3>跨语言支持</h3>
-                <p>支持多种编程语言及框架，满足各类开发需求。</p>
-            </div>
-            <!-- 特性卡片：流畅动画 -->
-            <div class="feature-card animate animate-delay-2">
-                <div class="feature-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1"></path>
-                        <polygon points="12 15 17 21 7 21 12 15"></polygon>
-                    </svg>
-                </div>
-                <h3>实时协作</h3>
-                <p>团队成员可以实时协作，提高开发效率。</p>
-            </div>
-            <!-- 特性卡片：定制开发 -->
-            <div class="feature-card animate animate-delay-3">
-                <div class="feature-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
-                        <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
-                    </svg>
-                </div>
-                <h3>智能提醒</h3>
-                <p>根据上下文提供智能建议和提醒，减少开发错误。</p>
             </div>
         </div>
     </section>
 
-    <!-- 产品特点部分 -->
-    <section id="features" class="projects-section">
+    <!-- 技能展示区块 -->
+    <section id="skills" class="skills-section">
         <div class="section-header">
-            <h2>核心 <span class="highlight">特点</span></h2>
-            <p>为什么选择DeepSynth</p>
+            <h2>我的 <span class="highlight">专业技能</span></h2>
+            <p>我的核心技术能力</p>
         </div>
-        <div class="features-grid">
-            <div class="feature-card animate">
-                <div class="feature-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                        <line x1="8" y1="21" x2="16" y2="21"></line>
-                        <line x1="12" y1="17" x2="12" y2="21"></line>
-                    </svg>
-                </div>
-                <h3>智能代码补全</h3>
-                <p>通过深度学习理解代码上下文，提供准确的代码补全建议。</p>
-            </div>
-            <div class="feature-card animate animate-delay-1">
-                <div class="feature-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 20h9"></path>
-                        <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
-                    </svg>
-                </div>
-                <h3>自动化重构</h3>
-                <p>自动识别代码优化机会，一键重构提升代码质量。</p>
-            </div>
-            <div class="feature-card animate animate-delay-2">
-                <div class="feature-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-                        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-                    </svg>
-                </div>
-                <h3>语义理解</h3>
-                <p>深度理解代码语义，提供上下文相关的帮助和建议。</p>
-            </div>
-            <div class="feature-card animate animate-delay-3">
-                <div class="feature-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M4 11a9 9 0 0 1 9 9"></path>
-                        <path d="M4 4a16 16 0 0 1 16 16"></path>
-                        <circle cx="5" cy="19" r="1"></circle>
-                    </svg>
-                </div>
-                <h3>持续学习</h3>
-                <p>系统不断从用户反馈中学习，持续提升服务质量。</p>
-            </div>
+        <div class="section-content">
+            <!-- 这里会被SkillsShowcase组件替换 -->
         </div>
     </section>
 
-    <!-- 产品展示区块 -->
+    <!-- 作品集区块 -->
     <section id="projects" class="projects-section">
         <!-- 区块标题 -->
         <div class="section-header">
-            <h2>我们的 <span class="highlight">产品</span></h2>
-            <p>探索DeepSynth生态系统</p>
+            <h2>我的 <span class="highlight">作品集</span></h2>
+            <p>探索我开发的AI Agent项目</p>
         </div>
         <!-- 项目展示容器 -->
         <div class="projects-showcase">
-            <!-- 项目卡片1：电子商务 -->
+            <!-- 项目卡片1：对话式Web助手 -->
             <div class="project-card animate">
                 <div class="project-image">
-                    <img src="static\images\横板logo.png" alt="DeepSynthWeb">
+                    <img src="static/images/横板logo.png" alt="对话式Web助手">
                 </div>
                 <div class="project-info">
-                    <h3>DeepSynthWeb</h3>
-                    <p>专为Web开发打造的智能助手，支持前端和后端开发。</p>
+                    <h3>对话式Web助手</h3>
+                    <p>基于LLM的智能网页助手，能够理解用户需求并提供上下文相关的帮助。支持网页内容理解和交互式对话。</p>
+                    <div class="project-tags">
+                        <span class="tag">React</span>
+                        <span class="tag">GPT-4</span>
+                        <span class="tag">Web API</span>
+                    </div>
                     <a href="pages/deepsynth-web.html" class="project-link">查看详情</a>
                 </div>
             </div>
-            <!-- 项目卡片2：社交媒体 -->
+            
+            <!-- 项目卡片2：数据分析Agent -->
             <div class="project-card animate animate-delay-1">
                 <div class="project-image">
-                    <img src="static/images/DeepSynthPython横板.png" alt="DeepSynthPython">
+                    <img src="static\images\DeepSynthPython横板.png" alt="数据分析Agent">
                 </div>
                 <div class="project-info">
-                    <h3>DeepSynthPython</h3>
-                    <p>Python开发的强大助手，提供智能代码生成和优化。</p>
+                    <h3>数据分析Agent</h3>
+                    <p>强大的数据处理和分析助手，能够通过自然语言指令执行复杂的数据分析任务，生成图表和洞察。</p>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Pandas</span>
+                        <span class="tag">RAG</span>
+                    </div>
                     <a href="pages/deepsynth-python.html" class="project-link">查看详情</a>
                 </div>
             </div>
-            <!-- 项目卡片3：作品集 -->
+            
+            <!-- 项目卡片3：企业流程自动化Agent -->
             <div class="project-card animate animate-delay-2">
                 <div class="project-image">
-                    <img src="static/images/DeepSynthEVE横板.png" alt="DeepSynthEVE">
+                    <img src="static\images\DeepSynthEVE横板.png" alt="企业流程自动化Agent">
                 </div>
                 <div class="project-info">
-                    <h3>DeepSynthEVE</h3>
-                    <p>企业级通用编程系统，提供全面的开发支持。</p>
+                    <h3>企业流程自动化Agent</h3>
+                    <p>面向企业的流程自动化助手，能够连接多种企业系统，自动执行日常任务，提高工作效率。</p>
+                    <div class="project-tags">
+                        <span class="tag">API集成</span>
+                        <span class="tag">工作流</span>
+                        <span class="tag">企业级</span>
+                    </div>
                     <a href="pages/deepsynth-eve.html" class="project-link">查看详情</a>
+                </div>
+            </div>
+            
+            <!-- 项目卡片4：AI项目构建器 -->
+            <div class="project-card animate animate-delay-3">
+                <div class="project-image">
+                    <img src="static/images/横板logo.png" alt="AI项目构建器">
+                </div>
+                <div class="project-info">
+                    <h3>AI项目构建器</h3>
+                    <p>智能项目生成器，根据用户描述自动构建完整的项目骨架，包括代码、文档和配置文件。</p>
+                    <div class="project-tags">
+                        <span class="tag">代码生成</span>
+                        <span class="tag">项目脚手架</span>
+                        <span class="tag">多语言</span>
+                    </div>
+                    <a href="pages/build-project.html" class="project-link">查看详情</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 装饰性悬浮元素 -->
-    <div class="floating-elements">
-        <div class="float-element" data-speed="1"></div>
-        <div class="float-element" data-speed="2"></div>
-        <div class="float-element" data-speed="3"></div>
-        <div class="float-element" data-speed="2"></div>
-        <div class="float-element" data-speed="1"></div>
-    </div>
-
-    <!-- 联系我们区块 -->
-    <section id="contact" class="contact-section">
-        <!-- 区块标题 -->
+    <!-- 工作经历区块 -->
+    <section id="experience" class="experience-section">
         <div class="section-header">
-            <h2>联系 <span class="highlight">我们</span></h2>
-            <p>有任何问题或建议，请随时联系我们</p>
+            <h2>工作 <span class="highlight">经历</span></h2>
+            <p>我的专业发展历程</p>
         </div>
-        <!-- 联系表单和信息容器 -->
-        <div class="contact-container">
-            <!-- 联系表单 -->
-            <div class="contact-form-container">
-                <form class="contact-form">
-                    <!-- 姓名输入字段 -->
-                    <div class="form-group">
-                        <input type="text" id="name" required>
-                        <label for="name">您的姓名</label>
-                    </div>
-                    <!-- 邮箱输入字段 -->
-                    <div class="form-group">
-                        <input type="email" id="email" required>
-                        <label for="email">您的邮箱</label>
-                    </div>
-                    <!-- 留言文本区域 -->
-                    <div class="form-group">
-                        <textarea id="message" rows="5" required></textarea>
-                        <label for="message">您的消息</label>
-                    </div>
-                    <!-- 提交按钮 -->
-                    <button type="submit" class="primary-btn">发送消息</button>
-                </form>
-            </div>
-            <!-- 联系信息 -->
+        <div class="section-content">
+            <!-- 这里会被ExperienceTimeline组件替换 -->
+        </div>
+    </section>
+
+    <!-- 联系我区块 -->
+    <section id="contact" class="contact-section">
+        <div class="section-header">
+            <h2>联系 <span class="highlight">我</span></h2>
+            <p>有项目想法？一起聊聊吧</p>
+        </div>
+        <div class="contact-content">
             <div class="contact-info">
-                <!-- 电话信息 -->
-                <div class="info-item">
-                    <div class="info-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                        </svg>
-                    </div>
-                    <div class="info-text">
-                        <h4>电话</h4>
-                        <p>+86 123 4567 8910</p>
-                    </div>
+                <div class="contact-item">
+                    <i class="material-icons">email</i>
+                    <p>example@mail.com</p>
                 </div>
-                <!-- 邮件信息 -->
-                <div class="info-item">
-                    <div class="info-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                            <polyline points="22,6 12,13 2,6"></polyline>
-                        </svg>
-                    </div>
-                    <div class="info-text">
-                        <h4>邮箱</h4>
-                        <p>contact@deepsynth.ai</p>
-                    </div>
+                <div class="contact-item">
+                    <i class="material-icons">phone</i>
+                    <p>+86 123 4567 8910</p>
                 </div>
-                <!-- 地址信息 -->
-                <div class="info-item">
-                    <div class="info-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                            <circle cx="12" cy="10" r="3"></circle>
-                        </svg>
-                    </div>
-                    <div class="info-text">
-                        <h4>地址</h4>
-                        <p>中国 · 北京市海淀区科技园</p>
-                    </div>
+                <div class="contact-item">
+                    <i class="material-icons">location_on</i>
+                    <p>北京市, 中国</p>
                 </div>
             </div>
+            <form class="contact-form">
+                <div class="form-group">
+                    <input type="text" placeholder="您的姓名" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="您的邮箱" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder="主题">
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="您的留言" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="primary-btn">发送留言</button>
+            </form>
         </div>
     </section>
 
     <!-- 页面底部 -->
     <footer class="footer">
-        <!-- 底部内容区 -->
         <div class="footer-content">
-            <!-- 底部Logo -->
             <div class="footer-logo">
-                <span class="highlight">Deep</span>Synth
+                <span class="highlight">李</span>沐
             </div>
-            <!-- 底部链接组 -->
             <div class="footer-links">
-                <!-- 导航链接 -->
-                <div class="footer-links-column">
-                    <h4>快速链接</h4>
-                    <a href="#hero">首页</a>
-                    <a href="#about">关于我们</a>
-                    <a href="#features">产品特点</a>
-                    <a href="#projects">产品系列</a>
-                    <a href="#contact">联系我们</a>
-                </div>
-                <!-- 产品链接 -->
-                <div class="footer-links-column">
-                    <h4>产品</h4>
-                    <a href="pages/deepsynth-web.html">DeepSynthWeb</a>
-                    <a href="pages/deepsynth-python.html">DeepSynthPython</a>
-                    <a href="pages/deepsynth-eve.html">DeepSynthEVE</a>
-                    <a href="pages/build-project.html">项目构建</a>
-                </div>
-                <!-- 支持链接 -->
-                <div class="footer-links-column">
-                    <h4>支持</h4>
-                    <a href="#">文档</a>
-                    <a href="#">常见问题</a>
-                    <a href="#">社区</a>
-                    <a href="#">API</a>
-                </div>
+                <a href="#hero">首页</a>
+                <a href="#about">关于我</a>
+                <a href="#skills">技能</a>
+                <a href="#projects">作品集</a>
+                <a href="#experience">经历</a>
+                <a href="#contact">联系我</a>
             </div>
         </div>
-        <!-- 底部版权区 -->
         <div class="footer-bottom">
-            <p>&copy; 2023 DeepSynth. 保留所有权利.</p>
+            <p>&copy; 2024 李沐. 保留所有权利.</p>
         </div>
     </footer>
 
-    <!-- 自定义鼠标跟随效果 -->
-    <div class="cursor-follower"></div>
-    <div class="cursor-dot"></div>
-
     <!-- JavaScript脚本引用 -->
     <script src="static/js/main.js"></script>
-    
-    <!-- 强制显示所有元素 -->
-    <script>
-        // 页面加载完成后立即执行，确保所有元素可见
-        document.addEventListener('DOMContentLoaded', function() {
-            // 强制显示所有动画元素、特性卡片和项目卡片
-            document.querySelectorAll('.animate, .feature-card, .project-card').forEach(function(el) {
-                // 直接修改内联样式，覆盖任何CSS样式
-                el.style.opacity = '1';
-                el.style.transform = 'translateY(0)';
-                el.style.transition = 'none';
-                el.classList.add('fade-in');
-            });
-        });
-        
-        // 滚动时再次确保元素可见
-        window.addEventListener('scroll', function() {
-            document.querySelectorAll('.animate, .feature-card, .project-card').forEach(function(el) {
-                el.style.opacity = '1';
-                el.style.transform = 'translateY(0)';
-            });
-        });
-    </script>
+    <!-- React组件 -->
+    <script src="static/js/react-components.js" type="text/babel"></script>
+    <script src="static/js/personal-components.js" type="text/babel"></script>
 </body>
 </html> 

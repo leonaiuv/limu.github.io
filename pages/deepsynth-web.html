@@ -3,235 +3,311 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="DeepSynth Web - Web 应用开发与优化解决方案">
-    <meta name="keywords" content="DeepSynth, Web开发, 前端优化, UI设计, 响应式布局">
-    <title>DeepSynth Web - 现代Web应用开发</title>
+    <meta name="description" content="对话式Web助手是一款基于AI Agent技术的智能网页助手，可以理解网页内容并与用户进行自然语言交互">
+    <meta name="keywords" content="AI Agent, 对话式Web助手, 智能网页助手, 李沐, AI工程师">
+    <title>对话式Web助手 - 李沐的作品集</title>
+    <!-- 样式表 -->
     <link rel="stylesheet" href="../static/css/main.css">
-    <link rel="stylesheet" href="../static/css/deepsynth-web.css">
-    <!-- 引入Google字体 -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
-    <!-- 引入GSAP动画库 -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="../static/css/react-components.css">
+    <link rel="stylesheet" href="../static/css/personal-styles.css">
+    <link rel="stylesheet" href="../static/css/project-styles.css">
+    <!-- 图标 -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- React库 -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <!-- Material UI库 -->
+    <script crossorigin src="https://unpkg.com/@mui/material@5.10.0/umd/material-ui.production.min.js"></script>
+    <!-- Babel转换器 -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- 自定义脚本 -->
+    <script src="../static/js/main.js"></script>
+    <script src="../static/js/react-components.js"></script>
+    <script src="../static/js/react-web-components.js"></script>
+    <script src="../static/js/project-components.js"></script>
+    <script src="../static/js/project-animations.js"></script>
 </head>
 <body>
-    <!-- 页面加载动画 -->
-    <div class="loader-wrapper">
-        <div class="loader"></div>
-        <div class="loader-text">请稍候...</div>
+    <!-- 加载动画 -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-circle"></div>
+            <div class="loader-text">正在加载...</div>
+        </div>
     </div>
 
-    <header class="header">
-        <div class="logo">
-            <a href="../index.html">
-                <img src="../static/images/横板logo.png" alt="DeepSynth Logo">
-            </a>
-        </div>
-        <nav class="main-nav">
-            <ul>
-                <li><a href="../index.html">首页</a></li>
-                <li><a href="../pages/deepsynth-web.html" class="active">Web开发</a></li>
-                <li><a href="../pages/deepsynth-eve.html">企业应用</a></li>
-                <li><a href="../pages/build-project.html">解决方案</a></li>
-                <li><a href="#">关于我们</a></li>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-logo">
+                <a href="../index.html">李沐</a>
+            </div>
+            <div class="navbar-toggle">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <ul class="navbar-menu">
+                <li><a href="../index.html#about">关于我</a></li>
+                <li><a href="../index.html#skills">技能</a></li>
+                <li><a href="../index.html#projects">作品集</a></li>
+                <li><a href="../index.html#experience">经历</a></li>
+                <li><a href="../index.html#contact">联系我</a></li>
             </ul>
-        </nav>
-        <div class="theme-toggle">
-            <span class="theme-icon light-icon">☀️</span>
-            <span class="theme-icon dark-icon">🌙</span>
         </div>
-        <div class="mobile-menu-toggle">
-            <span></span>
-            <span></span>
-            <span></span>
+    </nav>
+
+    <!-- Hero区域 -->
+    <div class="hero" id="react-navbar-container">
+        <div class="container">
+            <h1>对话式Web助手</h1>
+            <p>基于AI Agent技术的智能网页交互助手</p>
         </div>
-    </header>
-
-    <!-- 页面容器添加以防止溢出 -->
-    <div class="page-container">
-        <section class="product-hero">
-            <div class="product-hero-content">
-                <h1>DeepSynth Web</h1>
-                <p class="product-subtitle">构建现代、快速、可扩展的Web应用</p>
-                <p>DeepSynth Web 是我们专为现代Web应用开发打造的综合解决方案，融合前沿技术与用户体验设计，帮助您快速构建高性能、可扩展的Web应用。</p>
-                <div class="actions">
-                    <a href="#" class="primary-btn">开始使用</a>
-                    <a href="#" class="secondary-btn">查看文档</a>
-                </div>
-                <div class="tech-stack">
-                    <span class="tech-tag">React</span>
-                    <span class="tech-tag">Vue</span>
-                    <span class="tech-tag">Next.js</span>
-                    <span class="tech-tag">TypeScript</span>
-                    <span class="tech-tag">TailwindCSS</span>
-                </div>
-            </div>
-            <div class="product-hero-image">
-                <img src="../static/images/横板logo.png" alt="DeepSynth Web Dashboard">
-            </div>
-        </section>
-
-        <section class="features-section">
-            <div class="section-header centered">
-                <h2>核心特性</h2>
-                <p>精心设计的功能，助您构建现代Web应用</p>
-            </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                    <h3>组件化架构</h3>
-                    <p>采用现代组件化开发范式，实现代码复用和维护性提升，加速开发流程。</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M12 6V12L16 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                    <h3>性能优化</h3>
-                    <p>内置多项性能优化策略，实现更快的加载速度和响应时间，提升用户体验。</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M18 8H17V6C17 3.24 14.76 1 12 1C9.24 1 7 3.24 7 6V8H6C4.9 8 4 8.9 4 10V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V10C20 8.9 19.1 8 18 8ZM12 17C10.9 17 10 16.1 10 15C10 13.9 10.9 13 12 13C13.1 13 14 13.9 14 15C14 16.1 13.1 17 12 17ZM15 8H9V6C9 4.34 10.34 3 12 3C13.66 3 15 4.34 15 6V8Z" fill="currentColor"/>
-                        </svg>
-                    </div>
-                    <h3>安全防护</h3>
-                    <p>集成多层安全机制，防止常见Web攻击，保障应用和数据安全。</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M21 4H3C1.89543 4 1 4.89543 1 6V18C1 19.1046 1.89543 20 3 20H21C22.1046 20 23 19.1046 23 18V6C23 4.89543 22.1046 4 21 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M1 10H23" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                    <h3>响应式设计</h3>
-                    <p>完全响应式UI设计，自适应各种设备屏幕尺寸，提供一致的用户体验。</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="tech-details-section">
-            <div class="section-header centered">
-                <h2>技术细节</h2>
-                <p>深入了解DeepSynth Web的技术实现</p>
-            </div>
-            <div class="tech-details-content">
-                <div class="tech-detail-item">
-                    <h3>前端技术栈</h3>
-                    <ul>
-                        <li>React/Vue/Angular 框架支持</li>
-                        <li>TypeScript 类型安全</li>
-                        <li>Next.js/Nuxt.js SSR支持</li>
-                        <li>TailwindCSS/Styled Components</li>
-                        <li>状态管理 (Redux/Vuex/Pinia)</li>
-                    </ul>
-                </div>
-                <div class="tech-detail-item">
-                    <h3>性能优化</h3>
-                    <ul>
-                        <li>代码分割与懒加载</li>
-                        <li>服务端渲染 (SSR)</li>
-                        <li>静态站点生成 (SSG)</li>
-                        <li>资源预加载与缓存策略</li>
-                        <li>图像优化与WebP支持</li>
-                    </ul>
-                </div>
-                <div class="tech-detail-item">
-                    <h3>开发工具链</h3>
-                    <ul>
-                        <li>模块化开发环境</li>
-                        <li>热模块替换 (HMR)</li>
-                        <li>ESLint/Prettier 代码规范</li>
-                        <li>Jest/Testing Library 测试框架</li>
-                        <li>CI/CD 自动化部署</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section class="use-cases-section">
-            <div class="section-header centered">
-                <h2>应用场景</h2>
-                <p>DeepSynth Web 适合多种Web应用场景</p>
-            </div>
-            <div class="use-cases-grid">
-                <div class="use-case-card">
-                    <h3>企业官网</h3>
-                    <p>构建高性能、易于维护的企业官方网站，展示品牌形象，提供流畅的用户体验。</p>
-                </div>
-                <div class="use-case-card">
-                    <h3>电子商务</h3>
-                    <p>开发功能完备的电商平台，支持产品展示、购物车、支付集成等核心功能。</p>
-                </div>
-                <div class="use-case-card">
-                    <h3>SaaS应用</h3>
-                    <p>构建复杂的SaaS Web应用，实现用户管理、订阅服务、数据可视化等功能。</p>
-                </div>
-                <div class="use-case-card">
-                    <h3>内容管理</h3>
-                    <p>开发现代化的CMS系统，支持富媒体内容创建、发布、管理的完整工作流。</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="get-started-section">
-            <div class="get-started-content">
-                <h2>准备好开始了吗？</h2>
-                <p>立即体验DeepSynth Web，开启现代Web应用开发之旅</p>
-                <a href="#" class="primary-btn">免费试用</a>
-            </div>
-        </section>
     </div>
 
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>关于DeepSynth</h3>
-                <p>我们致力于提供全栈解决方案，帮助企业和开发者构建高质量的数字产品。</p>
-            </div>
-            <div class="footer-section">
-                <h3>快速链接</h3>
-                <ul class="footer-links">
-                    <li><a href="../index.html">首页</a></li>
-                    <li><a href="../pages/deepsynth-web.html">Web开发</a></li>
-                    <li><a href="../pages/deepsynth-eve.html">企业应用</a></li>
-                    <li><a href="../pages/build-project.html">解决方案</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>联系我们</h3>
-                <p>邮箱: info@deepsynth.com</p>
-                <p>电话: +86 123 4567 8910</p>
-                <div class="social-links">
-                    <a href="#" class="social-link">微信</a>
-                    <a href="#" class="social-link">知乎</a>
-                    <a href="#" class="social-link">GitHub</a>
+    <!-- 项目介绍部分 -->
+    <section class="features">
+        <div class="container">
+            <h2>项目概览</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <div class="feature-icon"><span class="material-icons">psychology</span></div>
+                    <h3>项目背景</h3>
+                    <p>对话式Web助手是我开发的一款基于AI Agent技术的网页助手，旨在通过自然语言交互方式增强用户的网页浏览体验。用户可以通过对话的方式询问网页内容、执行操作，无需点击复杂的菜单或按钮。</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><span class="material-icons">architecture</span></div>
+                    <h3>技术实现</h3>
+                    <p>该项目结合了大型语言模型(LLM)、自然语言处理技术和Web API，构建了一个能够理解网页内容并执行用户指令的智能Agent。核心技术包括语义理解、DOM解析和操作、事件响应等。</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><span class="material-icons">code</span></div>
+                    <h3>开发技术栈</h3>
+                    <p>前端: JavaScript, React, HTML5, CSS3<br>
+                       AI组件: OpenAI API, LangChain, Vector数据库<br>
+                       工具链: Webpack, Babel, Jest<br>
+                       部署: Docker, GitHub Actions</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><span class="material-icons">emoji_objects</span></div>
+                    <h3>我的角色</h3>
+                    <p>作为项目的主要开发者，我负责系统架构设计、AI Agent策略开发、前端界面实现和性能优化。项目从构思到最终实现历时3个月，在此期间我独立解决了多个技术难题。</p>
                 </div>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2023 DeepSynth. 保留所有权利。</p>
+    </section>
+
+    <!-- 核心功能 -->
+    <section class="core-features">
+        <div class="container">
+            <h2>核心功能</h2>
+            <div class="tabs">
+                <div class="tab-header">
+                    <div class="tab active" data-tab="search">内容检索</div>
+                    <div class="tab" data-tab="navigation">导航辅助</div>
+                    <div class="tab" data-tab="interaction">交互增强</div>
+                    <div class="tab" data-tab="accessibility">无障碍体验</div>
+                </div>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="search">
+                        <div class="tab-item">
+                            <h3>智能内容检索</h3>
+                            <p>对话式Web助手能够理解用户的自然语言查询，并在当前网页中快速定位相关信息，无需用户手动搜索或滚动页面。用户可以直接询问"这篇文章的主要观点是什么"或"找到关于X的部分"，助手会智能分析网页内容并提供精确回答。</p>
+                            <div class="tech-tags">
+                                <span>文本分析</span>
+                                <span>语义检索</span>
+                                <span>RAG技术</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="navigation">
+                        <div class="tab-item">
+                            <h3>智能导航辅助</h3>
+                            <p>用户可以通过自然语言指令导航网站，例如"带我去联系页面"或"找到产品目录"。助手会分析当前网站结构，找到最短路径并引导用户完成导航，大大减少寻找特定内容的时间。</p>
+                            <div class="tech-tags">
+                                <span>网站地图分析</span>
+                                <span>链接预测</span>
+                                <span>导航优化</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="interaction">
+                        <div class="tab-item">
+                            <h3>智能交互增强</h3>
+                            <p>助手可以帮助用户与网页表单、控件进行交互，用户只需说出"填写这个表单"或"提交我的信息"，助手就能够识别表单字段并引导用户完成操作，极大简化了复杂表单的填写过程。</p>
+                            <div class="tech-tags">
+                                <span>表单分析</span>
+                                <span>自动填充</span>
+                                <span>交互代理</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="accessibility">
+                        <div class="tab-item">
+                            <h3>无障碍体验提升</h3>
+                            <p>对话式Web助手特别关注无障碍体验，为视力障碍、运动障碍的用户提供语音交互界面。用户可以通过语音命令控制网页，助手会读出网页内容并执行用户指令，使网页交互变得更加包容。</p>
+                            <div class="tech-tags">
+                                <span>语音识别</span>
+                                <span>语音合成</span>
+                                <span>ARIA兼容</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 技术细节 -->
+    <section class="technical-details">
+        <div class="container">
+            <h2>技术实现细节</h2>
+            <div class="details-grid">
+                <div class="detail-item">
+                    <h3>AI引擎</h3>
+                    <p>基于大型语言模型构建的对话引擎，通过精心设计的提示工程和上下文管理，确保助手能够准确理解用户意图并保持连贯对话</p>
+                </div>
+                <div class="detail-item">
+                    <h3>网页内容处理</h3>
+                    <p>采用DOM解析和语义分析相结合的方法，对网页内容进行结构化处理，确保AI能够理解网页的布局和内容关系</p>
+                </div>
+                <div class="detail-item">
+                    <h3>交互策略</h3>
+                    <p>设计多轮对话策略和澄清机制，当用户指令不明确时，助手会通过提问引导用户明确意图，提高交互成功率</p>
+                </div>
+                <div class="detail-item">
+                    <h3>安全机制</h3>
+                    <p>实现内容过滤和操作验证机制，确保助手不会执行危险操作或处理敏感信息，保护用户隐私和安全</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 项目挑战 -->
+    <section class="challenges">
+        <div class="container">
+            <h2>项目挑战与解决方案</h2>
+            <div class="challenges-grid">
+                <!-- React挑战卡片组件将在这里渲染 -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 使用案例 -->
+    <section class="use-cases">
+        <div class="container">
+            <h2>典型使用案例</h2>
+            <div class="case-timeline">
+                <div class="case-item">
+                    <div class="case-point"></div>
+                    <div class="case-content">
+                        <h3>内容研究与总结</h3>
+                        <p>用户可以请求助手总结长文章的要点，或者从大量信息中提取特定数据，节省阅读和筛选时间</p>
+                    </div>
+                </div>
+                <div class="case-item">
+                    <div class="case-point"></div>
+                    <div class="case-content">
+                        <h3>复杂网站导航</h3>
+                        <p>在大型复杂网站中，用户可以直接告诉助手他们想要找什么，而不必理解网站的导航结构</p>
+                    </div>
+                </div>
+                <div class="case-item">
+                    <div class="case-point"></div>
+                    <div class="case-content">
+                        <h3>表单填写辅助</h3>
+                        <p>面对复杂的多页表单，用户可以获得实时指导，助手会解释每个字段的含义并提供填写建议</p>
+                    </div>
+                </div>
+                <div class="case-item">
+                    <div class="case-point"></div>
+                    <div class="case-content">
+                        <h3>无障碍体验</h3>
+                        <p>视力障碍用户可以通过语音与网页交互，助手会读出重要内容并执行用户的语音指令</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 项目结论 -->
+    <section class="get-started">
+        <div class="container">
+            <div class="get-started-content">
+                <!-- React项目结论组件将在这里渲染 -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <h3>李沐</h3>
+                    <p>AI Agent工程师</p>
+                    <div class="social-links">
+                        <a href="https://github.com/limu" target="_blank"><span class="material-icons">code</span></a>
+                        <a href="mailto:contact@example.com"><span class="material-icons">email</span></a>
+                        <a href="https://linkedin.com/in/example" target="_blank"><span class="material-icons">person</span></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>快速链接</h3>
+                    <ul>
+                        <li><a href="../index.html#about">关于我</a></li>
+                        <li><a href="../index.html#skills">技能</a></li>
+                        <li><a href="../index.html#projects">作品集</a></li>
+                        <li><a href="../index.html#experience">经历</a></li>
+                        <li><a href="../index.html#contact">联系我</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>联系我</h3>
+                    <p><span class="material-icons">email</span> contact@example.com</p>
+                    <p><span class="material-icons">location_on</span> 中国，北京</p>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; 2024 李沐 - AI Agent工程师. 保留所有权利.</p>
+            </div>
         </div>
     </footer>
 
-    <!-- 自定义鼠标跟随效果 -->
-    <div class="cursor-follower"></div>
-    <div class="cursor-dot"></div>
-
-    <!-- JavaScript脚本引用 -->
-    <script src="../static/js/main.js"></script>
-    <script src="../static/js/deepsynth-web.js"></script>
+    <script>
+        // 页面加载完成后执行
+        window.addEventListener('load', function() {
+            // 隐藏加载动画
+            document.getElementById('loader').style.display = 'none';
+            
+            // 标签页切换
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // 移除所有标签的活动状态
+                    tabs.forEach(t => t.classList.remove('active'));
+                    // 添加当前标签的活动状态
+                    this.classList.add('active');
+                    
+                    // 隐藏所有内容面板
+                    const panes = document.querySelectorAll('.tab-pane');
+                    panes.forEach(pane => pane.classList.remove('active'));
+                    
+                    // 显示当前内容面板
+                    const target = this.getAttribute('data-tab');
+                    document.getElementById(target).classList.add('active');
+                });
+            });
+            
+            // 移动端导航切换
+            const navToggle = document.querySelector('.navbar-toggle');
+            const navMenu = document.querySelector('.navbar-menu');
+            
+            navToggle.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+                navToggle.classList.toggle('active');
+            });
+        });
+    </script>
 </body>
 </html>
