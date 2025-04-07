@@ -1,331 +1,73 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
-    <!-- 页面基本设置 -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>李沐 - AI Agent工程师</title>
-    <link rel="stylesheet" href="static/css/main.css">
-    <link rel="stylesheet" href="static/css/react-components.css">
-    <link rel="stylesheet" href="static/css/personal-styles.css">
-    <!-- 引入Google字体 -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- 引入GSAP动画库 -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <!-- 引入Three.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.155.0/three.min.js"></script>
-    <!-- 引入React和ReactDOM -->
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
-    <!-- 引入Material UI -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-    <script src="https://unpkg.com/@mui/material@5.14.10/umd/material-ui.production.min.js" crossorigin></script>
-    <!-- 引入Babel用于JSX转换 -->
-    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <title>个人博客</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- 添加Phosphor图标库 - Notion风格图标 -->
+    <script src="https://unpkg.com/phosphor-icons"></script>
 </head>
 <body>
-    <!-- 页面加载动画 -->
-    <div class="loader-wrapper">
-        <div class="loader"></div>
-        <div class="loader-text">正在加载...</div>
-    </div>
-    
-    <!-- React导航栏容器 -->
-    <div id="react-navbar-container"></div>
-
-    <!-- 原有导航栏 (保留作为备用，可以在React成功加载后隐藏) -->
-    <nav class="main-nav" id="original-nav">
-        <div class="logo">
-            <a href="#" class="logo-container">
-                <span class="logo-text">
-                    <span class="highlight">李</span>沐
-                </span>
-                <div class="logo-icon">
-                    <svg viewBox="0 0 100 100" class="logo-svg">
-                        <circle class="logo-circle" cx="50" cy="50" r="45" />
-                        <path class="logo-path" d="M25,50 L75,50 M50,25 L50,75 M35,35 L65,65 M35,65 L65,35" />
-                    </svg>
-                </div>
-            </a>
-        </div>
-        <div class="nav-links">
-            <a href="#hero" class="nav-link">首页</a>
-            <a href="#about" class="nav-link">关于我</a>
-            <a href="#skills" class="nav-link">技能</a>
-            <a href="#projects" class="nav-link">作品集</a>
-            <a href="#experience" class="nav-link">经历</a>
-            <a href="#contact" class="nav-link">联系我</a>
-        </div>
-        <!-- 移动端汉堡菜单按钮 -->
-        <div class="hamburger">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </div>
-    </nav>
-
-    <!-- 侧边菜单 -->
-    <div class="side-menu">
-        <div class="side-menu-item" data-section="hero">
-            <div class="dot"></div>
-            <div class="label">首页</div>
-        </div>
-        <div class="side-menu-item" data-section="about">
-            <div class="dot"></div>
-            <div class="label">关于我</div>
-        </div>
-        <div class="side-menu-item" data-section="skills">
-            <div class="dot"></div>
-            <div class="label">技能</div>
-        </div>
-        <div class="side-menu-item" data-section="projects">
-            <div class="dot"></div>
-            <div class="label">作品集</div>
-        </div>
-        <div class="side-menu-item" data-section="experience">
-            <div class="dot"></div>
-            <div class="label">经历</div>
-        </div>
-        <div class="side-menu-item" data-section="contact">
-            <div class="dot"></div>
-            <div class="label">联系我</div>
-        </div>
-    </div>
-
-    <!-- 首页英雄区块 -->
-    <section id="hero" class="hero-section">
-        <!-- 3D背景 -->
-        <div class="hero-bg">
-            <canvas id="hero-canvas"></canvas>
-        </div>
-        <!-- 英雄区内容 -->
-        <div class="hero-content animate fade-in">
-            <!-- 这里会被PersonalHero组件替换 -->
-            <h1 class="hero-title">
-                探索<span class="highlight">AI驱动</span>的<br>
-                下一代开发工具
-            </h1>
-            <p class="hero-subtitle">DeepSynth结合前沿AI技术，彻底改变代码开发方式</p>
-            <!-- 行动按钮组 -->
-            <div class="cta-buttons">
-                <button class="primary-btn">开始使用</button>
-                <button class="secondary-btn">了解更多</button>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo"><i class="ph-house-simple"></i> 个人空间</div>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active"><i class="ph-user"></i> 首页</a></li>
+                    <li><a href="works.html"><i class="ph-projector-screen"></i> 作品展示</a></li>
+                </ul>
             </div>
-        </div>
-        <!-- 滚动指示器 -->
-        <div class="scroll-indicator">
-            <div class="mouse">
-                <div class="wheel"></div>
-            </div>
-            <div class="arrow">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </section>
+        </nav>
+    </header>
 
-    <!-- 关于我区块 -->
-    <section id="about" class="about-section">
-        <!-- 区块标题 -->
-        <div class="section-header">
-            <h2>关于 <span class="highlight">我</span></h2>
-            <p>了解我的背景和专业领域</p>
-        </div>
-        <!-- 内容网格 -->
-        <div class="about-grid">
-            <!-- 左侧：个人信息卡片 -->
-            <div class="personal-info-container">
-                <!-- 这里会被PersonalCard组件替换 -->
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>你好，我是<span class="highlight">设计师</span> <i class="ph-sparkle"></i></h1>
+                <p>这里是我记录想法和展示作品的数字空间</p>
             </div>
-            <!-- 右侧：个人介绍 -->
-            <div class="about-content">
-                <h3>我是谁？</h3>
-                <p>作为一名专注于AI Agent研发的工程师，我致力于构建能够自主决策和执行任务的智能系统。我的专业领域包括大语言模型集成、工具调用框架设计、多模态交互和复杂推理链实现。</p>
-                
-                <h3>我做什么？</h3>
-                <p>我设计并实现能够理解用户需求、制定计划并执行复杂任务的AI助手。这些系统能够调用各种工具和API，处理数据，并生成有用的输出，大大提高工作效率和创新能力。</p>
-                
-                <h3>为什么选择我？</h3>
-                <p>我深入理解大语言模型的能力和局限性，能够设计出稳健、可靠且具有扩展性的Agent系统。我的解决方案注重安全性、透明度和用户体验，确保AI助手能够真正为用户创造价值。</p>
-                
-                <div class="social-links">
-                    <a href="https://github.com/leonaiuv" target="_blank" class="social-link">GitHub</a>
-                    <a href="#" target="_blank" class="social-link">LinkedIn</a>
-                    <a href="#" target="_blank" class="social-link">Twitter</a>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- 技能展示区块 -->
-    <section id="skills" class="skills-section">
-        <div class="section-header">
-            <h2>我的 <span class="highlight">专业技能</span></h2>
-            <p>我的核心技术能力</p>
-        </div>
-        <div class="section-content">
-            <!-- 这里会被SkillsShowcase组件替换 -->
-        </div>
-    </section>
-
-    <!-- 作品集区块 -->
-    <section id="projects" class="projects-section">
-        <!-- 区块标题 -->
-        <div class="section-header">
-            <h2>我的 <span class="highlight">作品集</span></h2>
-            <p>探索我开发的AI Agent项目</p>
-        </div>
-        <!-- 项目展示容器 -->
-        <div class="projects-showcase">
-            <!-- 项目卡片1：对话式Web助手 -->
-            <div class="project-card animate">
-                <div class="project-image">
-                    <img src="static/images/横板logo.png" alt="对话式Web助手">
-                </div>
-                <div class="project-info">
-                    <h3>对话式Web助手</h3>
-                    <p>基于LLM的智能网页助手，能够理解用户需求并提供上下文相关的帮助。支持网页内容理解和交互式对话。</p>
-                    <div class="project-tags">
-                        <span class="tag">React</span>
-                        <span class="tag">GPT-4</span>
-                        <span class="tag">Web API</span>
+        <section class="about" id="about">
+            <div class="container">
+                <h2><i class="ph-user-circle"></i> 关于我</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>在这里添加您的自我介绍。例如：</p>
+                        <p>我是一名热爱创造的开发者，专注于网站设计与开发。我喜欢将创意转化为实际的项目，同时不断学习新技术。</p>
+                        <p>我的技能包括：</p>
+                        <ul>
+                            <li><i class="ph-code"></i> HTML, CSS 和 JavaScript</li>
+                            <li><i class="ph-device-mobile"></i> 响应式网页设计</li>
+                            <li><i class="ph-layout"></i> UI/UX 设计</li>
+                            <li><i class="ph-code-block"></i> 前端框架（如 React, Vue）</li>
+                        </ul>
                     </div>
-                    <a href="pages/deepsynth-web.html" class="project-link">查看详情</a>
-                </div>
-            </div>
-            
-            <!-- 项目卡片2：数据分析Agent -->
-            <div class="project-card animate animate-delay-1">
-                <div class="project-image">
-                    <img src="static\images\DeepSynthPython横板.png" alt="数据分析Agent">
-                </div>
-                <div class="project-info">
-                    <h3>数据分析Agent</h3>
-                    <p>强大的数据处理和分析助手，能够通过自然语言指令执行复杂的数据分析任务，生成图表和洞察。</p>
-                    <div class="project-tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">Pandas</span>
-                        <span class="tag">RAG</span>
+                    <div class="about-image">
+                        <!-- 这里可以放置个人照片 -->
+                        <div class="profile-placeholder"><i class="ph-user-circle" style="font-size: 48px;"></i> 个人照片</div>
                     </div>
-                    <a href="pages/deepsynth-python.html" class="project-link">查看详情</a>
                 </div>
             </div>
-            
-            <!-- 项目卡片3：企业流程自动化Agent -->
-            <div class="project-card animate animate-delay-2">
-                <div class="project-image">
-                    <img src="static\images\DeepSynthEVE横板.png" alt="企业流程自动化Agent">
-                </div>
-                <div class="project-info">
-                    <h3>企业流程自动化Agent</h3>
-                    <p>面向企业的流程自动化助手，能够连接多种企业系统，自动执行日常任务，提高工作效率。</p>
-                    <div class="project-tags">
-                        <span class="tag">API集成</span>
-                        <span class="tag">工作流</span>
-                        <span class="tag">企业级</span>
-                    </div>
-                    <a href="pages/deepsynth-eve.html" class="project-link">查看详情</a>
-                </div>
-            </div>
-            
-            <!-- 项目卡片4：AI项目构建器 -->
-            <div class="project-card animate animate-delay-3">
-                <div class="project-image">
-                    <img src="static/images/横板logo.png" alt="AI项目构建器">
-                </div>
-                <div class="project-info">
-                    <h3>AI项目构建器</h3>
-                    <p>智能项目生成器，根据用户描述自动构建完整的项目骨架，包括代码、文档和配置文件。</p>
-                    <div class="project-tags">
-                        <span class="tag">代码生成</span>
-                        <span class="tag">项目脚手架</span>
-                        <span class="tag">多语言</span>
-                    </div>
-                    <a href="pages/build-project.html" class="project-link">查看详情</a>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- 工作经历区块 -->
-    <section id="experience" class="experience-section">
-        <div class="section-header">
-            <h2>工作 <span class="highlight">经历</span></h2>
-            <p>我的专业发展历程</p>
-        </div>
-        <div class="section-content">
-            <!-- 这里会被ExperienceTimeline组件替换 -->
-        </div>
-    </section>
+        <section class="contact" id="contact">
+            <div class="container">
+                <h2><i class="ph-envelope"></i> 联系方式</h2>
+                <p>有任何问题或合作意向，欢迎通过以下方式联系我：</p>
+                <p><i class="ph-envelope-simple"></i> 邮箱：<a href="mailto:your.email@example.com">your.email@example.com</a></p>
+                <p><i class="ph-github-logo"></i> GitHub：<a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a></p>
+            </div>
+        </section>
+    </main>
 
-    <!-- 联系我区块 -->
-    <section id="contact" class="contact-section">
-        <div class="section-header">
-            <h2>联系 <span class="highlight">我</span></h2>
-            <p>有项目想法？一起聊聊吧</p>
-        </div>
-        <div class="contact-content">
-            <div class="contact-info">
-                <div class="contact-item">
-                    <i class="material-icons">email</i>
-                    <p>example@mail.com</p>
-                </div>
-                <div class="contact-item">
-                    <i class="material-icons">phone</i>
-                    <p>+86 123 4567 8910</p>
-                </div>
-                <div class="contact-item">
-                    <i class="material-icons">location_on</i>
-                    <p>北京市, 中国</p>
-                </div>
-            </div>
-            <form class="contact-form">
-                <div class="form-group">
-                    <input type="text" placeholder="您的姓名" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" placeholder="您的邮箱" required>
-                </div>
-                <div class="form-group">
-                    <input type="text" placeholder="主题">
-                </div>
-                <div class="form-group">
-                    <textarea placeholder="您的留言" rows="5" required></textarea>
-                </div>
-                <button type="submit" class="primary-btn">发送留言</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- 页面底部 -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-logo">
-                <span class="highlight">李</span>沐
-            </div>
-            <div class="footer-links">
-                <a href="#hero">首页</a>
-                <a href="#about">关于我</a>
-                <a href="#skills">技能</a>
-                <a href="#projects">作品集</a>
-                <a href="#experience">经历</a>
-                <a href="#contact">联系我</a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 李沐. 保留所有权利.</p>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 个人空间. 保留所有权利。 <i class="ph-heart"></i></p>
         </div>
     </footer>
 
-    <!-- JavaScript脚本引用 -->
-    <script src="static/js/main.js"></script>
-    <!-- React组件 -->
-    <script src="static/js/react-components.js" type="text/babel"></script>
-    <script src="static/js/personal-components.js" type="text/babel"></script>
+    <script src="js/main.js"></script>
 </body>
-</html> 
+</html>
