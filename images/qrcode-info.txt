@@ -1,0 +1,6 @@
+请提供微信公众号和抖音的二维码图片，并将它们保存为：
+
+1. images/wechat-qrcode.jpg - 微信公众号二维码
+2. images/tiktok-qrcode.jpg - 抖音二维码
+
+建议二维码图片尺寸为150x150像素或更大，以确保清晰度。 

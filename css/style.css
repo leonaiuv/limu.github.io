@@ -370,6 +370,58 @@ nav {
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
+/* 二维码区域样式 */
+.contact-qrcode {
+    flex: 1;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+.contact-qrcode h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary);
+}
+
+.qrcode-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.qrcode-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.qrcode-item img {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.qrcode-item img:hover {
+    transform: scale(1.05);
+}
+
+.qrcode-item p {
+    font-weight: 500;
+    color: var(--primary);
+}
+
+.follow-text {
+    font-size: 0.9rem;
+    color: #64748b;
+}
+
 .form-group {
     margin-bottom: 1.5rem;
 }
@@ -453,6 +505,19 @@ footer {
 .social-link:hover {
     background-color: var(--primary);
     transform: translateY(-3px);
+}
+
+/* 自定义社交媒体图标样式 */
+.social-link .fa-weixin {
+    color: #07C160;
+}
+
+.social-link .fa-tiktok {
+    color: #000000;
+}
+
+.social-link .fa-book {
+    color: #FF2442; /* 小红书红色 */
 }
 
 /* Responsive */
