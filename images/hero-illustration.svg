@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0ea5e9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6366f1;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#e2e8f0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f8fafc;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="2" dy="4" stdDeviation="10" flood-color="#0f172a" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+  
+  <!-- 笔记本电脑 -->
+  <g transform="translate(450, 300)" filter="url(#shadow)">
+    <!-- 笔记本底座 -->
+    <rect x="-180" y="50" width="360" height="20" rx="5" fill="#334155" />
+    <!-- 屏幕外壳 -->
+    <rect x="-175" y="-100" width="350" height="220" rx="10" fill="#334155" />
+    <!-- 屏幕 -->
+    <rect x="-165" y="-90" width="330" height="200" rx="5" fill="#1e293b" />
+    <!-- 屏幕内容 -->
+    <rect x="-150" y="-75" width="300" height="40" rx="3" fill="#475569" />
+    <rect x="-150" y="-25" width="120" height="120" rx="3" fill="#475569" />
+    <rect x="-20" y="-25" width="170" height="20" rx="3" fill="#475569" />
+    <rect x="-20" y="5" width="170" height="20" rx="3" fill="#475569" />
+    <rect x="-20" y="35" width="170" height="20" rx="3" fill="#475569" />
+    <rect x="-20" y="65" width="170" height="30" rx="3" fill="url(#grad1)" />
+    
+    <!-- 代码效果 -->
+    <rect x="-140" y="-65" width="20" height="20" rx="2" fill="url(#grad1)" />
+    <rect x="-110" y="-65" width="60" height="20" rx="2" fill="#64748b" />
+    <rect x="-40" y="-65" width="40" height="20" rx="2" fill="#64748b" />
+    <rect x="10" y="-65" width="50" height="20" rx="2" fill="#64748b" />
+    <rect x="70" y="-65" width="70" height="20" rx="2" fill="#64748b" />
+  </g>
+  
+  <!-- 人物 -->
+  <g transform="translate(280, 320)">
+    <!-- 头部 -->
+    <circle cx="0" cy="-120" r="50" fill="#fcd34d" />
+    <!-- 脸部特征 -->
+    <ellipse cx="-15" cy="-120" rx="5" ry="7" fill="#1e293b" />
+    <ellipse cx="15" cy="-120" rx="5" ry="7" fill="#1e293b" />
+    <path d="M -10 -100 Q 0 -90 10 -100" fill="none" stroke="#1e293b" stroke-width="3" stroke-linecap="round" />
+    
+    <!-- 身体 -->
+    <rect x="-40" y="-70" width="80" height="120" rx="20" fill="#3b82f6" />
+    
+    <!-- 胳膊 -->
+    <g transform="rotate(15)">
+      <rect x="30" y="-30" width="100" height="30" rx="15" fill="#fcd34d" />
+      <!-- 手 -->
+      <circle cx="130" cy="-15" r="15" fill="#fcd34d" />
+    </g>
+    
+    <g transform="rotate(-30)">
+      <rect x="-130" y="-20" width="100" height="30" rx="15" fill="#fcd34d" />
+      <!-- 手 -->
+      <circle cx="-130" cy="-5" r="15" fill="#fcd34d" />
+    </g>
+    
+    <!-- 腿 -->
+    <rect x="-35" y="50" width="30" height="70" rx="10" fill="#1e293b" />
+    <rect x="5" y="50" width="30" height="70" rx="10" fill="#1e293b" />
+    
+    <!-- 脚 -->
+    <rect x="-40" y="120" width="40" height="15" rx="7" fill="#475569" />
+    <rect x="0" y="120" width="40" height="15" rx="7" fill="#475569" />
+  </g>
+  
+  <!-- 装饰元素 -->
+  <g opacity="0.8">
+    <!-- 圆形 -->
+    <circle cx="650" cy="150" r="20" fill="url(#grad1)" opacity="0.5" />
+    <circle cx="700" cy="200" r="15" fill="url(#grad1)" opacity="0.5" />
+    <circle cx="670" cy="250" r="25" fill="url(#grad1)" opacity="0.5" />
+    
+    <!-- 形状 -->
+    <rect x="200" y="150" width="30" height="30" rx="5" fill="url(#grad1)" opacity="0.5" transform="rotate(45, 215, 165)" />
+    <rect x="170" y="200" width="20" height="20" rx="5" fill="url(#grad1)" opacity="0.5" transform="rotate(45, 180, 210)" />
+    <rect x="220" y="230" width="25" height="25" rx="5" fill="url(#grad1)" opacity="0.5" transform="rotate(45, 232, 242)" />
+  </g>
+  
+  <!-- 代码符号 -->
+  <g>
+    <text x="650" y="350" font-family="monospace" font-size="30" fill="url(#grad1)" transform="rotate(-15, 650, 350)">{}</text>
+    <text x="700" y="390" font-family="monospace" font-size="35" fill="url(#grad1)" transform="rotate(10, 700, 390)">[]</text>
+    <text x="750" y="340" font-family="monospace" font-size="28" fill="url(#grad1)" transform="rotate(5, 750, 340)">()</text>
+    <text x="200" y="320" font-family="monospace" font-size="32" fill="url(#grad1)" transform="rotate(-5, 200, 320)">;</text>
+    <text x="150" y="360" font-family="monospace" font-size="30" fill="url(#grad1)" transform="rotate(15, 150, 360)">:</text>
+  </g>
+</svg> 
