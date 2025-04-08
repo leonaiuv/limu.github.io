@@ -22,6 +22,10 @@
 ## 文件结构
 
 - `index.html` - 主页面
+- `css/` - 样式文件目录
+  - `style.css` - 主样式文件
+- `js/` - JavaScript文件目录
+  - `main.js` - 主脚本文件
 - `images/` - 图片资源目录
   - `hero-illustration.svg` - 主页SVG插图
   - `profile.jpg` - 个人照片(需要替换)
@@ -32,7 +36,8 @@
 1. 替换`images`文件夹中的图片为您自己的图片
 2. 编辑`index.html`中的文本内容，包括姓名、简介、项目描述等
 3. 更新联系信息和社交媒体链接
-4. 可根据需要修改CSS变量以更改配色方案
+4. 可根据需要修改`css/style.css`中的CSS变量以更改配色方案
+5. 如需修改打字机效果的文本，请编辑`js/main.js`中的`titles`数组
 
 ## 自定义
 
