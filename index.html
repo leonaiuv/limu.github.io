@@ -5,17 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>个人博客</title>
     <link rel="stylesheet" href="css/style.css">
-    <!-- 添加Phosphor图标库 - Notion风格图标 -->
-    <script src="https://unpkg.com/phosphor-icons"></script>
+    <!-- 添加飞书风格背景样式 -->
+    <link rel="stylesheet" href="css/feishu-bg.css">
+    <!-- 添加Remix Icon图标库 - 飞书风格图标 -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
 </head>
 <body>
+    <!-- 飞书风格背景容器 -->
+    <div class="feishu-bg"></div>
+    
     <header>
         <nav class="navbar">
             <div class="container">
-                <div class="logo"><i class="ph-house-simple"></i> 个人空间</div>
+                <div class="logo"><i class="ri-home-4-line"></i> 个人空间</div>
                 <ul class="nav-links">
-                    <li><a href="index.html" class="active"><i class="ph-user"></i> 首页</a></li>
-                    <li><a href="works.html"><i class="ph-projector-screen"></i> 作品展示</a></li>
+                    <li><a href="index.html" class="active"><i class="ri-user-line"></i> 首页</a></li>
+                    <li><a href="works.html"><i class="ri-slideshow-line"></i> 作品展示</a></li>
                 </ul>
             </div>
         </nav>
@@ -24,29 +29,29 @@
     <main>
         <section class="hero">
             <div class="container">
-                <h1>你好，我是<span class="highlight">李沐</span> <i class="ph-sparkle"></i></h1>
+                <h1>你好，我是<span class="highlight">李沐</span> <i class="ri-magic-line"></i></h1>
                 <p>这里是我记录想法和展示作品的数字空间</p>
             </div>
         </section>
 
         <section class="about" id="about">
             <div class="container">
-                <h2><i class="ph-user-circle"></i> 关于我</h2>
+                <h2><i class="ri-user-heart-line"></i> 关于我</h2>
                 <div class="about-content">
                     <div class="about-text">
                         <p>在这里添加您的自我介绍。例如：</p>
                         <p>我是一名热爱创造的开发者，专注于网站设计与开发。我喜欢将创意转化为实际的项目，同时不断学习新技术。</p>
                         <p>我的技能包括：</p>
                         <ul>
-                            <li><i class="ph-code"></i> HTML, CSS 和 JavaScript</li>
-                            <li><i class="ph-device-mobile"></i> 响应式网页设计</li>
-                            <li><i class="ph-layout"></i> UI/UX 设计</li>
-                            <li><i class="ph-code-block"></i> 前端框架（如 React, Vue）</li>
+                            <li><i class="ri-code-line"></i> HTML, CSS 和 JavaScript</li>
+                            <li><i class="ri-smartphone-line"></i> 响应式网页设计</li>
+                            <li><i class="ri-layout-2-line"></i> UI/UX 设计</li>
+                            <li><i class="ri-braces-line"></i> 前端框架（如 React, Vue）</li>
                         </ul>
                     </div>
                     <div class="about-image">
                         <!-- 这里可以放置个人照片 -->
-                        <div class="profile-placeholder"><i class="ph-user-circle" style="font-size: 48px;"></i> 个人照片</div>
+                        <div class="profile-placeholder"><i class="ri-user-smile-line" style="font-size: 48px;"></i> 个人照片</div>
                     </div>
                 </div>
             </div>
@@ -54,20 +59,22 @@
 
         <section class="contact" id="contact">
             <div class="container">
-                <h2><i class="ph-envelope"></i> 联系方式</h2>
+                <h2><i class="ri-mail-line"></i> 联系方式</h2>
                 <p>有任何问题或合作意向，欢迎通过以下方式联系我：</p>
-                <p><i class="ph-envelope-simple"></i> 邮箱：<a href="mailto:your.email@example.com">your.email@example.com</a></p>
-                <p><i class="ph-github-logo"></i> GitHub：<a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a></p>
+                <p><i class="ri-mail-send-line"></i> 邮箱：<a href="mailto:your.email@example.com">your.email@example.com</a></p>
+                <p><i class="ri-github-fill"></i> GitHub：<a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a></p>
             </div>
         </section>
     </main>
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 个人空间. 保留所有权利。 <i class="ph-heart"></i></p>
+            <p>&copy; 2024 个人空间. 保留所有权利。 <i class="ri-heart-3-fill"></i></p>
         </div>
     </footer>
 
     <script src="js/main.js"></script>
+    <!-- 添加飞书风格背景脚本 -->
+    <script src="js/feishu-bg.js"></script>
 </body>
 </html>
