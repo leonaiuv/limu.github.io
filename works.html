@@ -5,17 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>作品展示 - 个人博客</title>
     <link rel="stylesheet" href="css/style.css">
-    <!-- 添加Phosphor图标库 - Notion风格图标 -->
-    <script src="https://unpkg.com/phosphor-icons"></script>
+    <!-- 添加飞书风格背景样式 -->
+    <link rel="stylesheet" href="css/feishu-bg.css">
+    <!-- 添加Remix Icon图标库 - 飞书风格图标 -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
 </head>
 <body>
+    <!-- 飞书风格背景容器 -->
+    <div class="feishu-bg"></div>
+    
     <header>
         <nav class="navbar">
             <div class="container">
-                <div class="logo"><i class="ph-house-simple"></i> 个人空间</div>
+                <div class="logo"><i class="ri-home-4-line"></i> 个人空间</div>
                 <ul class="nav-links">
-                    <li><a href="index.html"><i class="ph-user"></i> 首页</a></li>
-                    <li><a href="works.html" class="active"><i class="ph-projector-screen"></i> 作品展示</a></li>
+                    <li><a href="index.html"><i class="ri-user-line"></i> 首页</a></li>
+                    <li><a href="works.html" class="active"><i class="ri-slideshow-line"></i> 作品展示</a></li>
                 </ul>
             </div>
         </nav>
@@ -24,66 +29,63 @@
     <main>
         <section class="works-hero">
             <div class="container">
-                <h1>我的作品集 <i class="ph-sparkle"></i></h1>
-                <p>这里展示了我的部分作品和项目，记录了我的创作旅程</p>
+                <h1><i class="ri-gallery-line"></i> 作品展示</h1>
+                <p>这里展示了我的一些项目和创作，希望您喜欢</p>
             </div>
         </section>
 
-        <!-- 作品展示区域 - 使用模块化设计 -->
         <section class="works-gallery">
             <div class="container">
-                <!-- 作品类别选择器 -->
                 <div class="works-filter">
-                    <button class="filter-btn active" data-filter="all"><i class="ph-squares-four"></i> 全部</button>
-                    <button class="filter-btn" data-filter="web"><i class="ph-globe"></i> 网站</button>
-                    <button class="filter-btn" data-filter="design"><i class="ph-paint-brush"></i> 设计</button>
-                    <button class="filter-btn" data-filter="other"><i class="ph-camera"></i> 其他</button>
+                    <button class="filter-btn active" data-filter="all"><i class="ri-apps-line"></i> 全部</button>
+                    <button class="filter-btn" data-filter="web"><i class="ri-chrome-line"></i> 网站</button>
+                    <button class="filter-btn" data-filter="design"><i class="ri-palette-line"></i> 设计</button>
+                    <button class="filter-btn" data-filter="other"><i class="ri-more-2-line"></i> 其他</button>
                 </div>
 
-                <!-- 作品卡片容器 -->
                 <div class="works-container">
-                    <!-- 示例作品项目 - 这些是模板，可以轻松添加或修改 -->
+                    <!-- 作品项目 1 -->
                     <div class="work-item" data-category="web">
                         <div class="work-image">
                             <img src="images/placeholder.jpg" alt="项目1">
                         </div>
                         <div class="work-info">
-                            <h3><i class="ph-globe-simple"></i> 个人网站设计</h3>
-                            <p>为客户设计的简约风格个人网站，注重内容展示和用户体验。使用了现代前端技术栈实现。</p>
+                            <h3><i class="ri-global-line"></i> 个人作品网站</h3>
+                            <p>使用HTML, CSS和JavaScript开发的响应式个人网站</p>
                             <div class="work-links">
-                                <a href="#" target="_blank" class="work-link"><i class="ph-arrow-square-out"></i> 查看项目</a>
-                                <a href="#" target="_blank" class="work-link"><i class="ph-code"></i> 源代码</a>
+                                <a href="#" class="work-link" target="_blank"><i class="ri-link"></i> 访问网站</a>
+                                <a href="#" class="work-link" target="_blank"><i class="ri-github-fill"></i> 查看代码</a>
                             </div>
                         </div>
                     </div>
 
+                    <!-- 作品项目 2 -->
                     <div class="work-item" data-category="design">
                         <div class="work-image">
                             <img src="images/placeholder.jpg" alt="项目2">
                         </div>
                         <div class="work-info">
-                            <h3><i class="ph-palette"></i> 品牌标识设计</h3>
-                            <p>为初创公司设计的品牌标识和视觉系统，包含logo、色彩方案和基础应用规范。</p>
+                            <h3><i class="ri-palette-line"></i> UI设计集</h3>
+                            <p>现代风格应用界面设计，注重用户体验</p>
                             <div class="work-links">
-                                <a href="#" target="_blank" class="work-link"><i class="ph-arrow-square-out"></i> 查看详情</a>
+                                <a href="#" class="work-link" target="_blank"><i class="ri-eye-line"></i> 查看详情</a>
                             </div>
                         </div>
                     </div>
 
+                    <!-- 作品项目 3 -->
                     <div class="work-item" data-category="other">
                         <div class="work-image">
                             <img src="images/placeholder.jpg" alt="项目3">
                         </div>
                         <div class="work-info">
-                            <h3><i class="ph-camera"></i> 摄影作品集</h3>
-                            <p>个人旅行摄影作品集，记录了我在各地的所见所闻，以及对光影的独特理解。</p>
+                            <h3><i class="ri-book-open-line"></i> 技术博客</h3>
+                            <p>分享我的技术学习和开发经验</p>
                             <div class="work-links">
-                                <a href="#" target="_blank" class="work-link"><i class="ph-image"></i> 查看作品</a>
+                                <a href="#" class="work-link" target="_blank"><i class="ri-link"></i> 访问博客</a>
                             </div>
                         </div>
                     </div>
-                    
-                    <!-- 可以按照上面的模板添加更多作品 -->
                 </div>
             </div>
         </section>
@@ -91,10 +93,12 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 个人空间. 保留所有权利。 <i class="ph-heart"></i></p>
+            <p>&copy; 2024 个人空间. 保留所有权利。 <i class="ri-heart-3-fill"></i></p>
         </div>
     </footer>
 
     <script src="js/main.js"></script>
+    <!-- 添加飞书风格背景脚本 -->
+    <script src="js/feishu-bg.js"></script>
 </body>
 </html> 
