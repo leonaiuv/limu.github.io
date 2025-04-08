@@ -5,9 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>个人作品集 | 专业开发者</title>
     <!-- 字体和图标 -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com" as="font" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    </noscript>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- 自定义样式 -->
     <link rel="stylesheet" href="css/style.css">
@@ -15,12 +18,12 @@
 <body>
     <header>
         <div class="container">
-            <nav>
+            <nav aria-label="主导航">
                 <div class="logo">李沐Space</div>
-                <ul class="nav-links">
-                    <li><a href="#about">关于我</a></li>
-                    <li><a href="#projects">项目</a></li>
-                    <li><a href="#contact">联系方式</a></li>
+                <ul class="nav-links" role="menubar">
+                    <li role="none"><a href="#about" role="menuitem">关于我</a></li>
+                    <li role="none"><a href="#projects" role="menuitem">项目</a></li>
+                    <li role="none"><a href="#contact" role="menuitem">联系方式</a></li>
                 </ul>
             </nav>
             
@@ -171,11 +174,11 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <p>&copy; 2025 我的作品集。保留所有权利。</p>
+                <p>&copy; <script>document.write(new Date().getFullYear())</script> 我的作品集。保留所有权利。</p>
                 <div class="social-links">
-                    <a href="https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzUzNjY0NDkxNA==&scene=124#wechat_redirect" target="_blank" class="social-link"><i class="fab fa-weixin"></i></a>
-                    <a href="https://www.douyin.com/user/MS4wLjABAAAA94Nf33VMeLNMYTbkCoutu3NvGQNIvsY37XJLTq0--2jNiNk3yivd-Ki4qb5LVpcB?from_tab_name=main" target="_blank" class="social-link"><i class="fab fa-tiktok"></i></a>
-                    <a href="https://www.xiaohongshu.com/user/profile/672d887e000000001d02e754?xsec_token=YBwOWW3vKffWoypC1eP5Jla8U6knp8Qme6XQIQs_xpnvk%3D&xsec_source=app_share&xhsshare=CopyLink&appuid=672d887e000000001d02e754&apptime=1744073791&share_id=ef068c5c91694d94ad4fd1d429c4de41&share_channel=copy_link" target="_blank" class="social-link"><i class="fas fa-book"></i></a>
+                    <a href="https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzUzNjY0NDkxNA==&scene=124#wechat_redirect" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fab fa-weixin" aria-hidden="true"></i><span class="sr-only">微信</span></a>
+                    <a href="https://www.douyin.com/user/MS4wLjABAAAA94Nf33VMeLNMYTbkCoutu3NvGQNIvsY37XJLTq0--2jNiNk3yivd-Ki4qb5LVpcB?from_tab_name=main" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fab fa-tiktok" aria-hidden="true"></i><span class="sr-only">抖音</span></a>
+                    <a href="https://www.xiaohongshu.com/user/profile/672d887e000000001d02e754?xsec_token=YBwOWW3vKffWoypC1eP5Jla8U6knp8Qme6XQIQs_xpnvk%3D&xsec_source=app_share&xhsshare=CopyLink&appuid=672d887e000000001d02e754&apptime=1744073791&share_id=ef068c5c91694d94ad4fd1d429c4de41&share_channel=copy_link" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fas fa-book" aria-hidden="true"></i><span class="sr-only">小红书</span></a>
                 </div>
             </div>
         </div>
